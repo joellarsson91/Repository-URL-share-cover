@@ -18,6 +18,8 @@ namespace fs19 {
 
 	private:
 		SDL_Rect rect;
+		Sprite(const Sprite&) = delete;
+		const Sprite& operator=(const Sprite&) = delete;
 	};
 }
 #endif

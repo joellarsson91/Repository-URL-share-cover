@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include<SDL_ttf.h>
 namespace fs19 {
+	//Declare the SDL System parts like renderer and windows
 	class System
 	{
 	};

@@ -4,6 +4,7 @@
 #include<vector>
 #include"Sprite.h"
 namespace fs19 {
+	//Declares the gameloop and adding Sprite components to the gameloop que
 	class GameEngine
 	{
 	public:
@@ -11,6 +12,7 @@ namespace fs19 {
 		void run();
 		~GameEngine();
 	private:
+		//Gameloop que
 		std::vector<Sprite*> spr;
 
 	};

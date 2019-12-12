@@ -16,10 +16,12 @@ namespace fs19 {
 		const SDL_Rect& getRect() const { return rect; } // Each Sprite holds a rectangel where its drawn up upon
 														//which coordinates
 	protected:
+		//Protects Sprite for being created as an object since its a templateclass
 		Sprite(int x, int y, int w, int h);
 
 	private:
 		SDL_Rect rect;
+		//Removes possabilities of allocate and copy Sprites
 		Sprite(const Sprite&) = delete;
 		const Sprite& operator=(const Sprite&) = delete;
 	};

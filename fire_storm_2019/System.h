@@ -6,6 +6,19 @@ namespace fs19 {
 	//Declare the SDL System parts like renderer and windows
 	class System
 	{
+	public:
+		System();
+		~System();
+		SDL_Renderer* get_ren() const;
+		TTF_Font* get_font() const;
+
+	private:
+		SDL_Window* win;
+		SDL_Renderer* ren;
+		TTF_Font* font;
+
 	};
+	
+	extern System sys;
 }
 #endif

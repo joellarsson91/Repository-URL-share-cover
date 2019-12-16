@@ -10,7 +10,7 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
-		while (!quit){//händelseloopen
+		while (!quit){//händelse-loopen
 			SDL_Event eve;//händelsekön
 			switch (SDL_PollEvent(&eve)) {
 

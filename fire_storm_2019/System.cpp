@@ -1,5 +1,8 @@
 #include "System.h"
 #include <SDL.h>
+
+//objekt av klassen system, utanför funktioner, ett statiskt objekt, dess konstruktor körs före programmet startas
+//dess destruktor efter programmet är klart. 
 namespace fs19 {
 	System::System() {
 		SDL_Init(SDL_INIT_EVERYTHING);
@@ -16,8 +19,6 @@ namespace fs19 {
 		SDL_DestroyRenderer(ren);
 		SDL_Quit();
 	}
-	//objekt av klassen system, utanför funktioner, ett statiskt objekt, dess konstruktor körs före programmet startas
-	//dess destruktor efter programmet är klart. 
 
 	SDL_Renderer* System::get_ren() const {
 		return ren;

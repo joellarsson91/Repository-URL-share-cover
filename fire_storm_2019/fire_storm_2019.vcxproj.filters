@@ -30,10 +30,13 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NewGame.cpp">
+    <ClCompile Include="Label.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Label.cpp">
+    <ClCompile Include="StaticS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,10 +53,13 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NewGame.h">
+    <ClInclude Include="Label.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Label.h">
+    <ClInclude Include="StaticS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

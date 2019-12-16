@@ -12,7 +12,7 @@ namespace fs19 {
 		bool quit = false;
 		while (!quit){//händelseloopen
 			SDL_Event eve;//händelsekön
-			switch (eve.type) {
+			switch (SDL_PollEvent(&eve)) {
 
 			case SDL_QUIT: quit = true; break;
 			

@@ -18,11 +18,9 @@ using namespace fs19;
 
 	int main(int argc, char** argv) {
 		GameEngine ge;
-		Button* ngb = new newGameButton();
+		newGameButton* ngb = new newGameButton();
 		ge.add(ngb);
 		ge.run();
 
 		return 0;
 	};
-
-

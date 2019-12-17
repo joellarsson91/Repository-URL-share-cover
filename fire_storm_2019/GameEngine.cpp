@@ -10,7 +10,7 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
-		while (!quit){//händelseloopen
+		while (!quit){//händelse-loopen
 			SDL_Event eve;//händelsekön
 			switch (SDL_PollEvent(&eve)) {
 
@@ -30,6 +30,11 @@ namespace fs19 {
 		
 
 
+
+	}
+
+	GameEngine::~GameEngine()
+	{
 	}
 
 	//Initializes the gameloop and adding Sprite components to the gameloop que

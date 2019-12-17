@@ -4,7 +4,7 @@
 #include "Button.h"
 
 using namespace std;
-namespace fs19 {
+using namespace fs19;
 
 	class newGameButton : public Button {
 	public:
@@ -23,7 +23,4 @@ namespace fs19 {
 		ge.run();
 
 		return 0;
-	}
-
-
-};
+	};

@@ -29,6 +29,11 @@ namespace fs19 {
 
 
 
+
+	}
+
+	GameEngine::~GameEngine()
+	{
 	}
 
 	//Initializes the gameloop and adding Sprite components to the gameloop que

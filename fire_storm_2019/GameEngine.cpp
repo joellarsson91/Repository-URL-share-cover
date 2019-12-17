@@ -1,6 +1,8 @@
 #include "GameEngine.h"
 #include <SDL.h>
 #include "System.h"
+#include <iostream>
+
 namespace fs19 {
 
 
@@ -15,15 +17,19 @@ namespace fs19 {
 			switch (SDL_PollEvent(&eve)) {
 
 			case SDL_QUIT: quit = true; break;
-			
-				//Rita upp alla händelser men måste börja med att sudda.
-				SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
-				SDL_RenderClear(sys.get_ren());
-				for (Sprite* s : eventQueue)
-					s->draw();
-				SDL_RenderPresent(sys.get_ren());
 
+	 
 			}
+			//Rita upp alla händelser men måste börja med att sudda.
+			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
+			SDL_RenderClear(sys.get_ren());
+			for (Sprite* s : eventQueue) {
+				
+				s->draw();
+			}
+			SDL_RenderPresent(sys.get_ren());
+
+			
 		}
 
 

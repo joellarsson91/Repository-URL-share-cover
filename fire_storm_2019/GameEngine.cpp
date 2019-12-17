@@ -24,13 +24,17 @@ namespace fs19 {
 				SDL_RenderPresent(sys.get_ren());
 
 			}
+
 		}
 
-
+		
 
 
 	}
 
 	//Initializes the gameloop and adding Sprite components to the gameloop que
+	GameEngine::~GameEngine() {
+
+	}
 
 }

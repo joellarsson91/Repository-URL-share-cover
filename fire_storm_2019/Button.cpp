@@ -3,6 +3,8 @@
 #include <SDL_ttf.h>
 #include "System.h"
 #include <SDL_image.h>
+
+
 namespace fs19 {
     Button::Button(int x, int y, int w, int h, std::string txt) :InteractiveS(x, y, w, h) {
         SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });

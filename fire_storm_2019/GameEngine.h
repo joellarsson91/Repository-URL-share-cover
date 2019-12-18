@@ -12,7 +12,7 @@ namespace fs19 {
 		void run();
 		~GameEngine();
 	private:
-		//Gameloop que
+		//Gameloop que 
 		std::vector<Sprite*> eventQueue;
 
 	};

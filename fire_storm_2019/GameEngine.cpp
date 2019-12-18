@@ -10,12 +10,14 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
-		while (!quit){//händelse-loopen
+		while (!quit) {//händelse-loopen
 			SDL_Event eve;//händelsekön
-			switch (eve.type) {
+			while (SDL_PollEvent(&eve)) {
 
-			case SDL_QUIT: quit = true; break;
-			
+				switch (eve.type) {
+
+				case SDL_QUIT: quit = true; break;
+				}
 				//Rita upp alla händelser men måste börja med att sudda.
 				SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 				SDL_RenderClear(sys.get_ren());
@@ -28,9 +30,12 @@ namespace fs19 {
 
 
 
+		//Initializes the gameloop and adding Sprite components to the gameloop que
 
 	}
 
-	//Initializes the gameloop and adding Sprite components to the gameloop que
+	GameEngine::~GameEngine()
+	{
+	}
 
 }

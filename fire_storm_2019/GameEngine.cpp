@@ -5,6 +5,9 @@
 
 namespace fs19 {
 
+	void GameEngine::clearQueue() {
+		eventQueue.clear();
+	}
 
 	void GameEngine::add(Sprite* s) {
 		eventQueue.push_back(s);

@@ -151,20 +151,16 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameEngine.cpp" />
-    <ClCompile Include="InteractiveS.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="StaticS.cpp" />
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameEngine.h" />
-    <ClInclude Include="InteractiveS.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="StaticS.h" />
     <ClInclude Include="System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

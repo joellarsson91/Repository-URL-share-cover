@@ -1,11 +1,10 @@
 #ifndef BUTTON_H
 #define BUTTON_H
-#include "InteractiveS.h"
 #include <string>
 #include <SDL.h>
-
+#include "Sprite.h"
 namespace fs19{
-class Button : public InteractiveS
+class Button : public Sprite
 {
 public:
 	static Button* getInstance(int x, int y, int w, int h, std::string txt);

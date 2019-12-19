@@ -35,10 +35,13 @@ private:
 		
 		void perform(Button* source) {
 		ge.clearQueue();
-
+		//ge.nyttObject(scen1)->eventque.
 		}
 	};
 
+	//Ska skapa en objekt av första scenen. Addera alla dess
+	//Spriteobjekt till GameEngine.
+	//Starta Game Engine med run();
 	int main(int argc, char** argv) {
 	
 		newGameButton* ngb = new newGameButton();

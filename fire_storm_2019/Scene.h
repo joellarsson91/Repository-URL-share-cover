@@ -14,9 +14,8 @@ public:
 	~Scene();
 	//Populate Scenelist with sprites
 	virtual void populateSpriteList();
-	std::vector<Sprite*> getSpriteList();
-
-	
+	const std::vector<Sprite*> getSpriteList() const { return spriteList; }
+	void addSprites(Sprite* s);
 
 protected:
 	//Konstruktor man inte ska kunna bygga objekt av
@@ -24,7 +23,7 @@ protected:
 
 private:
 
-	std::vector<Sprite*> sceneList;
+	std::vector<Sprite*> spriteList;
 
 
 

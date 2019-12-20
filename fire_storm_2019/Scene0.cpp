@@ -16,7 +16,7 @@ namespace fs19 {
 
 	void Scene0::populateSpriteList() {
 
-		getSpriteList().push_back(new newGameButton*());
+		//getSpriteList().push_back(new newGameButton*());
 		
 	}
 

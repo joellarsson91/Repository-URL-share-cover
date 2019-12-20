@@ -6,6 +6,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include "Sprite.h"
+#include "Scene0.h"
 
 using namespace std;
 using namespace fs19;
@@ -47,9 +48,13 @@ private:
 		newGameButton* ngb = new newGameButton();
 
 		Sprite* bg = new Background("background.png");
-		ge.add(bg);
-		ge.add(ngb);
-		ge.run();
+		//ge.add(bg);
+		//ge.add(ngb);
+		Scene* sc0 = new Scene0();
 
+		//for (Sprite* s : sc0->getSpriteList) {
+		//	ge.add(s);
+		//}
+		ge.run();
 		return 0;
 	};

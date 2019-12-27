@@ -5,6 +5,8 @@
 #include <SDL_image.h>
 #include "Sprite.h"
 #include <SDL.h>
+#include "GameEngine.h"
+#include "SceneMenu.h"
 namespace fs19 {
 
 
@@ -22,6 +24,11 @@ namespace fs19 {
 
 
 		void perform(Button* source) {
+			ge.clearQueue();
+			Scene* sm = new SceneMenu();
+			for (Sprite* s : sm->getSpriteList()) {
+				ge.add(s);
+			}
 
 		}
 	};

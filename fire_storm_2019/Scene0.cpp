@@ -9,15 +9,11 @@ namespace fs19 {
 
 
 	Scene0::Scene0() : Scene()   {
-		//populateSpriteList();
+		populateSpriteList();
 
 
 
-		Sprite* ngb = new NewGameButton();
-		Sprite* background = new Background("background.png");
 
-		addSprites(ngb);
-		addSprites(background);
 
 	}
 
@@ -27,7 +23,11 @@ namespace fs19 {
 
 	void Scene0::populateSpriteList() {
 
+		Sprite* ngb = new NewGameButton();
+		Sprite* background = new Background("background.png");
 
+		addSprites(ngb);
+		addSprites(background);
 
 		
 	}

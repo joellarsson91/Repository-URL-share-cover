@@ -51,10 +51,9 @@ private:
 		//ge.add(bg);
 		//ge.add(ngb);
 		Scene* sc0 = new Scene0();
-
-		//for (Sprite* s : sc0->getSpriteList) {
-		//	ge.add(s);
-		//}
+		for (Sprite* s : sc0->getSpriteList()) {
+			ge.add(s);
+		}
 		ge.run();
 		return 0;
 	};

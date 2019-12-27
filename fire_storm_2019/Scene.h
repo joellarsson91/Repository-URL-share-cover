@@ -25,8 +25,6 @@ private:
 
 	std::vector<Sprite*> spriteList;
 
-
-
 };
 
 }

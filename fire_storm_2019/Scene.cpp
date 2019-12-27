@@ -14,9 +14,9 @@ namespace fs19 {
 
 	}
 
-	//void Scene::addSprites(Sprite* s) {
-	//	spriteList.push_back
-	//}
+	void Scene::addSprites(Sprite* s) {
+		spriteList.push_back(s);
+	}
 
 
 

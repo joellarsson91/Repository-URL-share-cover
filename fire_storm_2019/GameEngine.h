@@ -9,6 +9,7 @@ namespace fs19 {
 	{
 	public:
 		void clearQueue();
+		void remove(int b, int e);
 		void add(Sprite* s);
 		void run();
 		~GameEngine();

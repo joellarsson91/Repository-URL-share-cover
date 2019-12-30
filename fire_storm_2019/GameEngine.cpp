@@ -5,6 +5,10 @@
 
 namespace fs19 {
 
+	void GameEngine::remove(int b, int e) {
+		eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);					
+	}
+
 	void GameEngine::clearQueue() {
 		eventQueue.clear();
 	}

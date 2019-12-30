@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include "GameEngine.h"
 #include "SceneMenu.h"
+#include <iostream>
 namespace fs19 {
 
 
@@ -24,9 +25,13 @@ namespace fs19 {
 
 
 		void perform(Button* source) {
-			ge.clearQueue();
 			Scene* sm = new SceneMenu();
+			std::cout << "Hej";
+
+
+			ge.remove(0, 1);
 			for (Sprite* s : sm->getSpriteList()) {
+
 				ge.add(s);
 			}
 
@@ -56,10 +61,8 @@ namespace fs19 {
 	Scene0::Scene0() {
 		//populateSpriteList();
 
-		
 
-		Sprite* background = new Background("background.png");
-		addSprites(background);
+		addSprites(new Background("background.png"));
 		addSprites(new NewGameButton());
 
 

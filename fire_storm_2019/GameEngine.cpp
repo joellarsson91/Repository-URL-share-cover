@@ -5,6 +5,7 @@
 
 namespace fs19 {
 
+
 	void GameEngine::clearQueue() {
 		eventQueue.clear();
 	}
@@ -66,6 +67,7 @@ namespace fs19 {
 	{
 	}
 
+	GameEngine ge;
 	//Initializes the gameloop and adding Sprite components to the gameloop que
-
+	
 }

@@ -17,6 +17,7 @@ namespace fs19 {
 		std::vector<Sprite*> eventQueue;
 
 	};
+	extern GameEngine ge;
 }
 #endif // !GAMEENGINE_H
 

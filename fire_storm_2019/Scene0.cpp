@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include "Sprite.h"
 #include <SDL.h>
+#include "SceneMenu.h"
 namespace fs19 {
 
 
@@ -22,7 +23,7 @@ namespace fs19 {
 
 
 		void perform(Button* source) {
-
+			SceneMenu* sm = new SceneMenu();
 		}
 	};
 	class Background : public Sprite {

@@ -26,13 +26,13 @@ namespace fs19 {
 
 		void perform(Button* source) {
 			Scene* sm = new SceneMenu();
-			std::cout << "Hej";
+			int currentSize = ge.size();
 
 
 			ge.remove(0, 1);
 			for (Sprite* s : sm->getSpriteList()) {
-
 				ge.add(s);
+				ge.remove(0, currentSize-1);
 			}
 
 		}
@@ -59,7 +59,7 @@ namespace fs19 {
 	//could be reached.
 
 	Scene0::Scene0() {
-		//populateSpriteList();
+
 
 
 		addSprites(new Background("background.png"));

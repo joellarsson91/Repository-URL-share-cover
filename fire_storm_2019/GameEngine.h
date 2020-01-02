@@ -12,6 +12,7 @@ namespace fs19 {
 		void remove(int b, int e);
 		void add(Sprite* s);
 		void run();
+		int size();
 		~GameEngine();
 	private:
 		//Gameloop que

@@ -5,8 +5,14 @@
 #include "Button.h"
 #include "System.h"
 #include "GameEngine.h"
+#include "Scene0.h"
 namespace fs19{
 
+
+	SceneMenu::~SceneMenu() {
+
+
+	}
 
 	class StartGameButton : public Button {
 	public:
@@ -45,18 +51,13 @@ namespace fs19{
 	};
 
 	SceneMenu::SceneMenu() {
-		//populateSpriteList();
-
-
-		ge.clearQueue();
+		
 		Sprite* background = new Background("fireStormBackground.jpg");
-
 		addSprites(background);
 		addSprites(new StartGameButton());
-		Scene* scM = new SceneMenu();
-		for (Sprite* s : scM->getSpriteList()) {
-			ge.add(s);
-		}
+		addSprites(new SettingsButton());
+
+
 
 	}
 

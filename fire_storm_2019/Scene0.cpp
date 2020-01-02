@@ -6,6 +6,7 @@
 #include "Sprite.h"
 #include <SDL.h>
 #include "SceneMenu.h"
+#include "GameEngine.h"
 namespace fs19 {
 
 
@@ -23,7 +24,11 @@ namespace fs19 {
 
 
 		void perform(Button* source) {
-			SceneMenu* sm = new SceneMenu();
+			ge.clearQueue();
+			SceneMenu* scM = new SceneMenu();
+			for (Sprite* s : scM->getSpriteList()) {
+				ge.add(s);
+			}
 		}
 	};
 	class Background : public Sprite {
@@ -48,7 +53,7 @@ namespace fs19 {
 	//could be reached.
 
 	Scene0::Scene0() {
-		//populateSpriteList();
+		
 
 		
 

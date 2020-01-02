@@ -6,7 +6,7 @@
 
 
 namespace fs19 {
-    Button::Button(int x, int y, int w, int h, std::string txt) :InteractiveS(x, y, w, h) {
+    Button::Button(int x, int y, int w, int h, std::string txt) :Sprite(x, y, w, h) {
         SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         SDL_FreeSurface(surf);

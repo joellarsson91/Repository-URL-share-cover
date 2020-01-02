@@ -8,6 +8,7 @@ namespace fs19 {
 	class GameEngine
 	{
 	public:
+		void clearQueue();
 		void add(Sprite* s);
 		void run();
 		~GameEngine();

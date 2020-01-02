@@ -7,7 +7,6 @@
 #include <SDL.h>
 #include "GameEngine.h"
 #include "SceneMenu.h"
-#include <iostream>
 namespace fs19 {
 
 
@@ -21,7 +20,7 @@ namespace fs19 {
 
 	class NewGameButton : public Button {
 	public:
-		NewGameButton() :Button(100, 100, 100, 50, "New Game") {}
+		NewGameButton() :Button(325, 275, 100, 50, "New Game") {}
 
 
 		void perform(Button* source) {

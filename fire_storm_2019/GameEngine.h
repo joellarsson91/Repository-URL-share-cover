@@ -9,14 +9,19 @@ namespace fs19 {
 	{
 	public:
 		void clearQueue();
+		void remove(int b, int e);
 		void add(Sprite* s);
 		void run();
+		int size();
 		~GameEngine();
 	private:
 		//Gameloop que
 		std::vector<Sprite*> eventQueue;
 
 	};
+
+	extern GameEngine ge;
+
 }
 #endif // !GAMEENGINE_H
 

@@ -5,8 +5,15 @@
 
 namespace fs19 {
 
+	void GameEngine::remove(int b, int e) {
+		eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);					
+	}
+
 	void GameEngine::clearQueue() {
 		eventQueue.clear();
+	}
+	int GameEngine::size() {
+		return eventQueue.size();
 	}
 
 	void GameEngine::add(Sprite* s) {
@@ -65,6 +72,8 @@ namespace fs19 {
 	GameEngine::~GameEngine()
 	{
 	}
+
+	GameEngine ge;
 
 	//Initializes the gameloop and adding Sprite components to the gameloop que
 

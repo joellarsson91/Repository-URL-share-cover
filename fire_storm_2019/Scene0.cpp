@@ -5,6 +5,8 @@
 #include <SDL_image.h>
 #include "Sprite.h"
 #include <SDL.h>
+#include "GameEngine.h"
+#include "SceneMenu.h"
 namespace fs19 {
 
 
@@ -18,10 +20,20 @@ namespace fs19 {
 
 	class NewGameButton : public Button {
 	public:
-		NewGameButton() :Button(100, 100, 100, 50, "New Game") {}
+		NewGameButton() :Button(325, 275, 100, 50, "New Game") {}
 
 
 		void perform(Button* source) {
+			Scene* sm = new SceneMenu();
+			int currentSize = ge.size();
+
+
+			
+			for (Sprite* s : sm->getSpriteList()) {
+				ge.add(s);
+				
+			}
+			ge.remove(0, currentSize - 1);
 
 		}
 	};
@@ -47,12 +59,10 @@ namespace fs19 {
 	//could be reached.
 
 	Scene0::Scene0() {
-		//populateSpriteList();
 
-		
 
-		Sprite* background = new Background("background.png");
-		addSprites(background);
+
+		addSprites(new Background("background.png"));
 		addSprites(new NewGameButton());
 
 

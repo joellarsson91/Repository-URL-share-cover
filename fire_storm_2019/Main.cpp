@@ -11,7 +11,7 @@
 using namespace std;
 using namespace fs19;
 
-GameEngine ge;
+//GameEngine ge;
 
 
 class Background : public Sprite {

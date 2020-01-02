@@ -29,11 +29,12 @@ namespace fs19 {
 			int currentSize = ge.size();
 
 
-			ge.remove(0, 1);
+			
 			for (Sprite* s : sm->getSpriteList()) {
 				ge.add(s);
-				ge.remove(0, currentSize-1);
+				
 			}
+			ge.remove(0, currentSize - 1);
 
 		}
 	};

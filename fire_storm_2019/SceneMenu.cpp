@@ -1,9 +1,38 @@
 #include "SceneMenu.h"
-#include <SDL.h>
 #include <SDL_image.h>
+#include "Sprite.h"
+#include <SDL.h>
+#include "Button.h"
 #include "System.h"
+#include "GameEngine.h"
+#include "Scene0.h"
+namespace fs19{
 
-namespace fs19 {
+
+	SceneMenu::~SceneMenu() {
+
+
+	}
+
+	class StartGameButton : public Button {
+	public:
+		StartGameButton() :Button(100, 100, 100, 50, "Start 2 Player Game"){ }
+
+		void perform(Button* source) {
+
+		}
+	};
+
+	class SettingsButton : public Button {
+	public:
+		SettingsButton() :Button(100, 200, 100, 50, "Settings") { }
+
+		void perform(Button* source) {
+
+		}
+	};
+
+
 
 	class Background : public Sprite {
 	public:
@@ -17,17 +46,19 @@ namespace fs19 {
 		}
 	private:
 		SDL_Texture* texture;
+
+
 	};
+
 	SceneMenu::SceneMenu() {
-		Sprite* background = new Background("background.png");
+		
+		Sprite* background = new Background("fireStormBackground.jpg");
 		addSprites(background);
+		addSprites(new StartGameButton());
+		addSprites(new SettingsButton());
+
+
 
 	}
-	SceneMenu::~SceneMenu() {
-
-	}
-
-
-	void SceneMenu::populateSpriteList() {};
 
 }

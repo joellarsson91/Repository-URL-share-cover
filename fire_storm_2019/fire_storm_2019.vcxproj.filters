@@ -42,7 +42,7 @@
     <ClCompile Include="SceneMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneSettings.cpp">
+    <ClCompile Include="SceneKeyBindings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +71,7 @@
     <ClInclude Include="SceneMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SceneSettings.h">
+    <ClInclude Include="SceneKeyBindings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

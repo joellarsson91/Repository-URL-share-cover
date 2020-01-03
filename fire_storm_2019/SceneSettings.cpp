@@ -1,36 +1,33 @@
-#include "Scene0.h"
+#include "SceneSettings.h"
 #include "Button.h"
 #include <string>
 #include "System.h"
 #include <SDL_image.h>
 #include "Sprite.h"
 #include <SDL.h>
-#include "SceneMenu.h"
-#include "GameEngine.h"
+
 namespace fs19 {
+	//börjat planka från Scene0, kanske är helt fel?
 
-
-	Scene0::~Scene0() {
+	SceneSettings::~SceneSettings() {
 
 	}
 
-	void Scene0::populateSpriteList() {
-		
+	void SceneSettings::populateSpriteList() {
+
 	}
 
-	class NewGameButton : public Button {
+	class KeyBindingsButton : public Button {
 	public:
-		NewGameButton() :Button(100, 100, 100, 50, "New Game") {}
-
+		KeyBindingsButton() :Button(100, 100, 100, 50, "Keybindings") {}
 
 		void perform(Button* source) {
-			ge.clearQueue();
-			SceneMenu* scM = new SceneMenu();
-			for (Sprite* s : scM->getSpriteList()) {
-				ge.add(s);
-			}
+
 		}
 	};
+
+	// reminder to maybe implement fps functionality here if fps is not auto only
+
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
@@ -44,24 +41,12 @@ namespace fs19 {
 	private:
 		SDL_Texture* texture;
 
-
 	};
 
-
-
-	//Moved constructor down so the encapsulated classes
-	//could be reached.
-
-	Scene0::Scene0() {
-		
-
-		
+	SceneSettings::SceneSettings() {
 
 		Sprite* background = new Background("background.png");
 		addSprites(background);
-		addSprites(new NewGameButton());
-
-
+		addSprites(new KeyBindingsButton());
 	}
 }
-

@@ -6,6 +6,8 @@
 #include "System.h"
 #include "GameEngine.h"
 #include "Scene0.h"
+#include "Label.h"
+#include "Battlefield.h"
 namespace fs19{
 
 
@@ -14,23 +16,44 @@ namespace fs19{
 
 	}
 
+	class PlayerLabel : public Label {
+	public:
+
+		PlayerLabel() : Label(400, 400, 200, 50, "Player 1"){}
+
+	};
+
+
+	class PlayerLabelTwo : public Label {
+	public:
+
+		PlayerLabelTwo() : Label(200, 200, 200, 50, "Player 2") {}
+
+	};
+
+
 	class StartGameButton : public Button {
 	public:
-		StartGameButton() :Button(100, 100, 100, 50, "Start 2 Player Game"){ }
+	StartGameButton() :Button(300, 300, 100, 50, "START GAME!"){ }
 
-		void perform(Button* source) {
-
-		}
-	};
-
-	class SettingsButton : public Button {
-	public:
-		SettingsButton() :Button(100, 200, 100, 50, "Settings") { }
-
-		void perform(Button* source) {
+	void perform(Button* source) {
+		ge.clearQueue();
+		Battlefield* bf = new Battlefield();
+		for (Sprite* s : bf->getSpriteList()) {
+			ge.add(s);
+			}
 
 		}
 	};
+
+	//class SettingsButton : public Button {
+	//public:
+	//	SettingsButton() :Button(100, 200, 100, 50, "Settings") { }
+
+	//	void perform(Button* source) {
+
+	//	}
+	//};
 
 
 
@@ -55,10 +78,10 @@ namespace fs19{
 		Sprite* background = new Background("fireStormBackground.jpg");
 		addSprites(background);
 		addSprites(new StartGameButton());
-		addSprites(new SettingsButton());
-
-
-
+		//addSprites(new SettingsButton());
+		addSprites(new PlayerLabel());
+		addSprites(new PlayerLabelTwo());
+		
 	}
 
 }

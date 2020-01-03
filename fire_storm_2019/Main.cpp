@@ -7,11 +7,12 @@
 #include <iostream>
 #include "Sprite.h"
 #include "Scene0.h"
+#include "SceneMenu.h"
 
 using namespace std;
 using namespace fs19;
 
-//GameEngine ge;
+
 
 
 class Background : public Sprite {
@@ -35,6 +36,7 @@ private:
 		
 		
 		void perform(Button* source) {
+		
 		ge.clearQueue();
 		//ge.nyttObject(scen1)->eventque.
 		}
@@ -45,11 +47,12 @@ private:
 	//Starta Game Engine med run();
 	int main(int argc, char** argv) {
 	
-		newGameButton* ngb = new newGameButton();
 
+
+		ge.clearQueue();
+		newGameButton* ngb = new newGameButton();
 		Sprite* bg = new Background("background.png");
-		//ge.add(bg);
-		//ge.add(ngb);
+
 		Scene* sc0 = new Scene0();
 		for (Sprite* s : sc0->getSpriteList()) {
 			ge.add(s);

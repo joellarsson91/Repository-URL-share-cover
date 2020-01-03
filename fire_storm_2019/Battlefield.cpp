@@ -1,4 +1,4 @@
-#include "Battlefield.h"
+#include "SceneBattlefield.h"
 #include "GameEngine.h"
 #include <SDL.h>
 #include <SDL_image.h>
@@ -7,7 +7,7 @@
 
 namespace fs19 {
 
-	Battlefield::~Battlefield() {
+	SceneBattlefield::~SceneBattlefield() {
 
 
 	}
@@ -31,7 +31,7 @@ namespace fs19 {
 	};
 
 
-	Battlefield::Battlefield() {
+	SceneBattlefield::SceneBattlefield() {
 
 		Sprite* background = new Background("battlefieldBackground.png");
 		addSprites(background);

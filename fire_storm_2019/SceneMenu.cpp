@@ -7,7 +7,7 @@
 #include "GameEngine.h"
 #include "Scene0.h"
 #include "Label.h"
-#include "Battlefield.h"
+#include "SceneBattlefield.h"
 namespace fs19{
 
 
@@ -38,7 +38,7 @@ namespace fs19{
 
 	void perform(Button* source) {
 		ge.clearQueue();
-		Battlefield* bf = new Battlefield();
+		SceneBattlefield* bf = new SceneBattlefield();
 		for (Sprite* s : bf->getSpriteList()) {
 			ge.add(s);
 			}

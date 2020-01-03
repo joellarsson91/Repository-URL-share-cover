@@ -2,12 +2,12 @@
 #define BATTLEFIELD_H
 #include "Scene.h"
 namespace fs19{
-class Battlefield : public Scene
+class SceneBattlefield : public Scene
 {
 public:
-	Battlefield();
+	SceneBattlefield();
 
-	~Battlefield();
+	~SceneBattlefield();
 
 
 };

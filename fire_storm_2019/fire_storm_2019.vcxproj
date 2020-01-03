@@ -153,6 +153,7 @@
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PlayerSprite.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene0.cpp" />
     <ClCompile Include="SceneKeyBindings.cpp" />
@@ -162,7 +163,8 @@
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battlefield.h" />
+    <ClInclude Include="PlayerSprite.h" />
+    <ClInclude Include="SceneBattlefield.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="SceneSettings.h" />

@@ -25,6 +25,7 @@ namespace fs19 {
 
 		while (!quit){//händelse-loopen
 			SDL_Event eve;//händelsekön
+
 			while (SDL_PollEvent(&eve)) {
 				switch (eve.type) {
 				case SDL_QUIT: quit = true; break;
@@ -48,6 +49,10 @@ namespace fs19 {
 					for (Sprite* s : eventQueue) {
 						s->keyUp(eve);
 					}
+				case SDL_TEXTINPUT:
+					for (Sprite* s : eventQueue) {
+						s->textInput(eve);
+					}
 					break;
 				}
 			}
@@ -59,7 +64,12 @@ namespace fs19 {
 				s->draw();
 			}
 			SDL_RenderPresent(sys.get_ren());
+			
 
+			//Tick
+			for (Sprite* s : eventQueue) {
+				s->tick();
+			}
 			
 		}
 

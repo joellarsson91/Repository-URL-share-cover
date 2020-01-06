@@ -10,7 +10,9 @@ namespace fs19 {
 		ren = SDL_CreateRenderer(win, -1, 0);
 		TTF_Init();
 		font = TTF_OpenFont("c:/Windows/Fonts/arial.ttf", 36);
-		SDL_StartTextInput();
+		
+		
+		
 	}
 
 	System::~System() {
@@ -19,7 +21,7 @@ namespace fs19 {
 		SDL_DestroyWindow(win);
 		SDL_DestroyRenderer(ren);
 		SDL_Quit();
-		SDL_StopTextInput();
+		
 	}
 
 	SDL_Renderer* System::get_ren() const {
@@ -28,5 +30,7 @@ namespace fs19 {
 	TTF_Font* System::get_font() const {
 		return font;
 	}
+
+
 	System sys;
 }

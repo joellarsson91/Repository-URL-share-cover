@@ -13,6 +13,7 @@ namespace fs19 {
 		virtual void mouseUp(const SDL_Event&) {};
 		virtual void keyDown(const SDL_Event&) {};
 		virtual void keyUp(const SDL_Event&) {};
+		virtual void textInput(const SDL_Event&) {};
 		const SDL_Rect& getRect() const { return rect; } // Each Sprite holds a rectangel where its drawn up upon
 														//which coordinates
 	protected:

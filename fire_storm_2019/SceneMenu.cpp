@@ -8,6 +8,7 @@
 #include "Scene0.h"
 #include "Label.h"
 #include "SceneBattlefield.h"
+
 namespace fs19{
 
 
@@ -45,6 +46,7 @@ namespace fs19{
 
 		}
 	};
+
 
 	//class SettingsButton : public Button {
 	//public:

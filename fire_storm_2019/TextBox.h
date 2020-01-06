@@ -23,6 +23,7 @@ namespace fs19 {
 	private:
 		std::string inputText;
 		bool renderText = false;
+		bool editingActive = false;
 		SDL_Texture* texture;
 		SDL_Color textColor = { 0,0,0,0xFF };
 	};

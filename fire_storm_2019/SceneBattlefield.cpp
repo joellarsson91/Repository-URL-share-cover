@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "System.h"
+#include "PlayerSprite.h"
 
 
 namespace fs19 {
@@ -31,9 +32,31 @@ namespace fs19 {
 	};
 
 
+	class Player1 : public PlayerSprite {
+	public:
+		Player1() : PlayerSprite(0, 300, 100, 50){}
+
+
+	};
+
+	class Player2 : public PlayerSprite {
+	public:
+		Player2() : PlayerSprite(700, 300, 100, 50) {}
+		
+
+	};
+
+
+
 	SceneBattlefield::SceneBattlefield() {
 
 		Sprite* background = new Background("battlefieldBackground.png");
 		addSprites(background);
+		addSprites(new Player1());
+		Player2* player2 = new Player2();
+		player2->setIsTurnedLeft(true);
+		addSprites(player2);
+
+
 	}
 }

@@ -54,6 +54,11 @@ namespace fs19 {
 						s->textInput(eve);
 					}
 					break;
+
+
+
+
+
 				}
 			}
 			//Rita upp alla händelser men måste börja med att sudda.

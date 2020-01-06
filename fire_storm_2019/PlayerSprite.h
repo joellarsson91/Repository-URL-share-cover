@@ -1,26 +1,29 @@
 #ifndef PLAYERSPRITE_H
 #define PLAYERSPRITE_H
-#include "Sprite.h"
 #include <SDL.h>
+#include "Sprite.h"
+#include <vector>
 namespace fs19{
 
 class PlayerSprite : public Sprite
 {
 public:
-	static PlayerSprite getInstance(int x, int y, int w, int h);
-	void draw() const;
-	~PlayerSprite();
-	
 
+
+	static PlayerSprite* getInstance(int x, int y, int w, int h);
+	~PlayerSprite();
+	void draw() const;
+	void setIsTurnedLeft(bool b) { isTurnedLeft = b; };
+	void keyUp(const SDL_Event&) {};
+	void keyDown(const SDL_Event&);
 
 protected:
 	PlayerSprite(int x, int y, int v, int h);
 
 private:
+	bool isTurnedLeft = false;
 
-	bool isTurnedRight;
-	SDL_Texture* texture;
-
+	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
 };
 }
 #endif

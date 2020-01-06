@@ -16,6 +16,7 @@ namespace fs19 {
 		virtual void textInput(const SDL_Event&) {};
 		const SDL_Rect& getRect() const { return rect; } // Each Sprite holds a rectangel where its drawn up upon
 														//which coordinates
+		void setPosition(int dx, int dy) { rect.x = +dx; rect.y = +dy; }
 	protected:
 		//Protects Sprite for being created as an object since its a templateclass
 		Sprite(int x, int y, int w, int h);

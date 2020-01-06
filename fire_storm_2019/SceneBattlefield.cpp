@@ -56,5 +56,7 @@ namespace fs19 {
 		Player2* player2 = new Player2();
 		player2->setIsTurnedLeft(true);
 		addSprites(player2);
+
+
 	}
 }

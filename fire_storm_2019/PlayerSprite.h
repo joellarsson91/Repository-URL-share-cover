@@ -14,6 +14,8 @@ public:
 	~PlayerSprite();
 	void draw() const;
 	void setIsTurnedLeft(bool b) { isTurnedLeft = b; };
+	void keyUp(const SDL_Event&) {};
+	void keyDown(const SDL_Event&);
 
 protected:
 	PlayerSprite(int x, int y, int v, int h);

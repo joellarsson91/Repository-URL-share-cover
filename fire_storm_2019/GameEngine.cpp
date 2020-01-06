@@ -49,6 +49,11 @@ namespace fs19 {
 						s->keyUp(eve);
 					}
 					break;
+
+
+
+
+
 				}
 			}
 			//Rita upp alla händelser men måste börja med att sudda.

@@ -25,6 +25,7 @@ public:
 		SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 	}
+	void tick() {};
 private:
 	SDL_Texture* texture;
 

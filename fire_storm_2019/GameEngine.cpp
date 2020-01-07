@@ -5,6 +5,8 @@
 
 namespace fs19 {
 
+
+
 	void GameEngine::remove(int b, int e) {
 		eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);					
 	}
@@ -19,6 +21,8 @@ namespace fs19 {
 	void GameEngine::add(Sprite* s) {
 		eventQueue.push_back(s);
 	}
+
+
 
 	void GameEngine::run() {
 		bool quit = false;

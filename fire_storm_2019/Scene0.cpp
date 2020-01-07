@@ -8,8 +8,6 @@
 #include "SceneMenu.h"
 #include "GameEngine.h"
 #include "TextBox.h"
-#include <iostream>
-#include "AnimationSprite.h"
 namespace fs19 {
 
 
@@ -28,15 +26,13 @@ namespace fs19 {
 
 		void perform(Button* source) {
 			ge.clearQueue();
-			
-
 			SceneMenu* scM = new SceneMenu();
-			
 			for (Sprite* s : scM->getSpriteList()) {
-				ge.add(s);				
+				ge.add(s);
 			}
-			
 		}
+
+		void tick() {};
 	};
 	class Background : public Sprite {
 	public:
@@ -48,20 +44,16 @@ namespace fs19 {
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		void tick() {};
 	private:
 		SDL_Texture* texture;
 
 
 	};
-	class TextEditor : public TextBox {
-	public:
-		TextEditor() :TextBox(200,100,100,100){}
-	};
-
-	class WalkAnimation : public AnimationSprite {
-	public:
-		WalkAnimation():AnimationSprite(300,300,98,164,"Walkanimation.png", 7){}
-	};
+	//class TextEditor : public TextBox {
+	//public:
+	//	TextEditor() :TextBox(200,100,100,100){}
+	//};
 
 
 
@@ -76,8 +68,7 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		addSprites(new WalkAnimation());
-		
+		//addSprites(new TextEditor());
 
 	}
 }

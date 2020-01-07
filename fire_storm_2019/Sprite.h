@@ -7,7 +7,7 @@ namespace fs19 {
 	{
 	public:
 		virtual ~Sprite();
-		virtual void tick() {} //An incremential tick that updates the game with each tick at end of the loop
+		virtual void tick() = 0; //Virtuel, måste implementeras i subclasser. An incremential tick that updates the game with each tick at end of the loop
 		virtual void draw() const = 0; //draws the components
 		virtual void mouseDown(const SDL_Event&) {}; //Whatever happens when you hold the mouse button down.
 		virtual void mouseUp(const SDL_Event&) {};

@@ -13,6 +13,7 @@ public:
 	static PlayerSprite* getInstance(int x, int y, int w, int h);
 	~PlayerSprite();
 	void draw() const;
+	void tick() {};
 	void setIsTurnedLeft(bool b) { isTurnedLeft = b; };
 	void keyUp(const SDL_Event&) {};
 	void keyDown(const SDL_Event&);

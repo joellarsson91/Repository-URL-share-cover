@@ -9,6 +9,7 @@
 #include "GameEngine.h"
 #include "TextBox.h"
 #include <iostream>
+#include "AnimationSprite.h"
 namespace fs19 {
 
 
@@ -57,6 +58,11 @@ namespace fs19 {
 		TextEditor() :TextBox(200,100,100,100){}
 	};
 
+	class WalkAnimation : public AnimationSprite {
+	public:
+		WalkAnimation():AnimationSprite(300,300,98,164,"Walkanimation.png", 7){}
+	};
+
 
 
 	//Moved constructor down so the encapsulated classes
@@ -70,6 +76,7 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
+		addSprites(new WalkAnimation());
 		
 
 	}

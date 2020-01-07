@@ -2,13 +2,20 @@
 #include <SDL.h>
 #include "System.h"
 #include <iostream>
+#include "Sprite.h"
+
+#define FPS 60
 
 namespace fs19 {
 
+	// lägger till i temporär vector
+	void GameEngine::add(Sprite* s) {
+		added.push_back(s);
+	}
 
-
-	void GameEngine::remove(int b, int e) {
-		eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);					
+	void GameEngine::remove(Sprite* s) {
+		//eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);
+		removed.push_back(s);
 	}
 
 	void GameEngine::clearQueue() {
@@ -18,17 +25,16 @@ namespace fs19 {
 		return eventQueue.size();
 	}
 
-	void GameEngine::add(Sprite* s) {
-		eventQueue.push_back(s);
-	}
-
-
+	
 
 	void GameEngine::run() {
 		bool quit = false;
 		const Uint8* keyboard_state_array = SDL_GetKeyboardState(NULL);
 
+		// 32-bits heltal, hur många millisec mellan tick
+		Uint32 tickInterval = 1000 / FPS;
 		while (!quit){//händelse-loopen
+			Uint32 nextTick = SDL_GetTicks() + tickInterval;
 			SDL_Event eve;//händelsekön
 
 
@@ -61,13 +67,33 @@ namespace fs19 {
 						s->textInput(eve);
 					}
 					break;
-
-
-
-
-
 				}
 			}
+
+			//Tick
+			for (Sprite* s : eventQueue) {
+				s->tick();
+			}
+
+			//lägger till i eventQueue när man inte längre itererar i den
+			for (Sprite* s : added) {
+				eventQueue.push_back(s);
+			}
+			added.clear();
+
+			//går igenom removed och tar bort från eventQueue
+			for (Sprite* s : removed)
+				for (std::vector<Sprite*>::iterator i = eventQueue.begin();
+					i != eventQueue.end();)
+					if (*i == s) {
+						// i sätts till nästa plats i iteratorn
+						i = eventQueue.erase(i);
+					}
+					else
+						i++;
+			removed.clear();
+			
+
 			//Rita upp alla händelser men måste börja med att sudda.
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
@@ -78,10 +104,11 @@ namespace fs19 {
 			SDL_RenderPresent(sys.get_ren());
 			
 
-			//Tick
-			for (Sprite* s : eventQueue) {
-				s->tick();
-			}
+			// fördröjer hela programmet, inte enskilda Sprites
+			int delay = nextTick - SDL_GetTicks();
+			if (delay > 0)
+				SDL_Delay(delay);
+			
 			
 		}
 

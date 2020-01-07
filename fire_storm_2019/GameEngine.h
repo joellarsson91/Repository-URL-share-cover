@@ -9,7 +9,7 @@ namespace fs19 {
 	{
 	public:
 		void clearQueue();
-		void remove(int b, int e);
+		void remove(Sprite* s);
 		void add(Sprite* s);
 		void run();
 		int size();
@@ -17,6 +17,8 @@ namespace fs19 {
 	private:
 		//Gameloop que 
 		std::vector<Sprite*> eventQueue;
+		// temporära vectorer
+		std::vector<Sprite*> added, removed;
 
 	};
 

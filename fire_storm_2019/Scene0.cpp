@@ -31,6 +31,8 @@ namespace fs19 {
 				ge.add(s);
 			}
 		}
+
+		void tick() {};
 	};
 	class Background : public Sprite {
 	public:
@@ -42,6 +44,7 @@ namespace fs19 {
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		void tick() {};
 	private:
 		SDL_Texture* texture;
 

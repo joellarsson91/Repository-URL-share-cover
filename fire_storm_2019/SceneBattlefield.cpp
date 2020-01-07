@@ -38,12 +38,52 @@ namespace fs19 {
 		Player1() : PlayerSprite(0, 300, 100, 50){}
 
 
+
+
+		void keyDown(const SDL_Event& eve) {
+			if (eve.key.keysym.sym == SDLK_UP) {
+				setPosition(0, -3);
+			}
+			if (eve.key.keysym.sym == SDLK_DOWN) {
+				setPosition(0, +3);
+			}
+			if (eve.key.keysym.sym == SDLK_LEFT) {
+				setPosition(-3, 0);
+
+			}
+			//scancodes SDLK_RIGHT
+			if (eve.key.keysym.sym == SDLK_RIGHT) {
+				setPosition(+3, 0);
+
+			}
+		}
+
+
 	};
+
 
 	class Player2 : public PlayerSprite {
 	public:
 		Player2() : PlayerSprite(700, 300, 100, 50) {}
 		
+
+
+		void keyDown(const SDL_Event& eve) {
+			if (eve.key.keysym.sym == SDLK_w) {
+				setPosition(0, -3);
+			}
+			if (eve.key.keysym.sym == SDLK_s) {
+				setPosition(0, +3);
+			}
+			if (eve.key.keysym.sym == SDLK_a) {
+				setPosition(-3, 0);
+
+			}
+			if (eve.key.keysym.sym == SDLK_d) {
+				setPosition(+3, 0);
+
+			}
+		}
 
 	};
 

@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "System.h"
-#include "Sprite.h"
+#include "SceneBattlefield.h"
 
 namespace fs19 {
 
@@ -23,14 +23,7 @@ namespace fs19 {
 		SDL_DestroyTexture(pixelCatapultLeft);
 	}
 
-	void PlayerSprite::keyDown(const SDL_Event& eve) {
-		if (eve.key.keysym.sym == SDLK_UP) {
-			setPosition(0, -1);
-		}
-		if (eve.key.keysym.sym == SDLK_DOWN) {
-			setPosition(0, +1);
-		}
-	}
+
 
 	void PlayerSprite::draw() const {
 

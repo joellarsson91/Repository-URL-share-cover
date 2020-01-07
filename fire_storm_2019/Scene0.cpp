@@ -50,10 +50,10 @@ namespace fs19 {
 
 
 	};
-	class TextEditor : public TextBox {
-	public:
-		TextEditor() :TextBox(200,100,100,100){}
-	};
+	//class TextEditor : public TextBox {
+	//public:
+	//	TextEditor() :TextBox(200,100,100,100){}
+	//};
 
 
 
@@ -68,7 +68,7 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		addSprites(new TextEditor());
+		//addSprites(new TextEditor());
 
 	}
 }

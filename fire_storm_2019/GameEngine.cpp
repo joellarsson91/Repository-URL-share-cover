@@ -26,9 +26,12 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
+		const Uint8* keyboard_state_array = SDL_GetKeyboardState(NULL);
 
 		while (!quit){//händelse-loopen
 			SDL_Event eve;//händelsekön
+
+
 
 			while (SDL_PollEvent(&eve)) {
 				switch (eve.type) {

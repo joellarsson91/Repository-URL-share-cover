@@ -8,6 +8,7 @@
 #include "Scene0.h"
 #include "Label.h"
 #include "SceneBattlefield.h"
+#include "TextBox.h"
 namespace fs19{
 
 
@@ -65,6 +66,11 @@ namespace fs19{
 
 
 	};
+	class TextEditor : public TextBox {
+	public:
+		TextEditor() :TextBox(200, 100, 100, 100) {}
+	};
+
 
 	SceneMenu::SceneMenu() {
 		
@@ -74,6 +80,7 @@ namespace fs19{
 		//addSprites(new SettingsButton());
 		addSprites(new PlayerLabel());
 		addSprites(new PlayerLabelTwo());
+		addSprites(new TextEditor());
 		
 	}
 

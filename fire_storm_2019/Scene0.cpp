@@ -8,6 +8,7 @@
 #include "SceneMenu.h"
 #include "GameEngine.h"
 #include "TextBox.h"
+#include <iostream>
 namespace fs19 {
 
 
@@ -26,10 +27,14 @@ namespace fs19 {
 
 		void perform(Button* source) {
 			ge.clearQueue();
+			
+
 			SceneMenu* scM = new SceneMenu();
+			
 			for (Sprite* s : scM->getSpriteList()) {
-				ge.add(s);
+				ge.add(s);				
 			}
+			
 		}
 	};
 	class Background : public Sprite {
@@ -65,7 +70,7 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		addSprites(new TextEditor());
+		
 
 	}
 }

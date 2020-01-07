@@ -7,6 +7,7 @@ namespace fs19 {
 	
 	TextBox::~TextBox() {
 		SDL_StopTextInput();
+		SDL_DestroyTexture(texture);
 
 	}
 	TextBox::TextBox(int x, int y, int w, int h) : Sprite(x, y, w, h) {
@@ -24,11 +25,6 @@ namespace fs19 {
 
 
 	}
-
-
-	void TextBox::tick() {
-
-	} //An incremential tick that updates the game with each tick at end of the loop
 	
 	
 	
@@ -39,8 +35,6 @@ namespace fs19 {
 	}
 
 	 //draws the components
-	void TextBox::mouseDown(const SDL_Event& eve) {
-	}
 	void TextBox::mouseUp(const SDL_Event& eve) {
 		SDL_Point p = { eve.button.x, eve.button.y };
 		if (SDL_PointInRect(&p, &getRect())) {
@@ -68,7 +62,6 @@ namespace fs19 {
 			renderText = true;
 		}
 		else if (eve.key.keysym.sym == SDLK_RETURN || eve.key.keysym.sym == SDLK_KP_ENTER && editingActive) {
-			std::cout << "hej";
 			editingActive = false;
 			SDL_StopTextInput();
 		}
@@ -78,7 +71,7 @@ namespace fs19 {
 		SDL_FreeSurface(surf);
 		
 	}
-	void TextBox::keyUp(const SDL_Event&) {}
+
 
 	void TextBox::textInput(const SDL_Event& eve) {
 		if (!(SDL_GetModState() & KMOD_CTRL && (eve.text.text[0] == 'c' || eve.text.text[0] == 'C' || eve.text.text[0] == 'v' || eve.text.text[0] == 'V') ) && editingActive)

@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationSprite.cpp" />
     <ClCompile Include="SceneBattlefield.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationSprite.h" />
     <ClInclude Include="PlayerSprite.h" />
     <ClInclude Include="SceneBattlefield.h" />
     <ClInclude Include="Button.h" />

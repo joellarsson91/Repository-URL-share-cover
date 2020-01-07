@@ -10,12 +10,12 @@ namespace fs19 {
 	public:
 		static TextBox* getInstance(int x, int y, int w, int h);
 		~TextBox();
-		void tick(); //An incremential tick that updates the game with each tick at end of the loop
-		void draw() const; //draws the components
-		void mouseDown(const SDL_Event&); //Whatever happens when you hold the mouse button down.
+		void tick() {}; //An incremential tick that updates the game with each tick at end of the loop
+		void draw() const ; //draws the components
+		void mouseDown(const SDL_Event&) {}; //Whatever happens when you hold the mouse button down.
 		void mouseUp(const SDL_Event&);
-		void keyDown(const SDL_Event&);
-		void keyUp(const SDL_Event&);
+		void keyDown(const SDL_Event&) ;
+		void keyUp(const SDL_Event&) {};
 		void textInput(const SDL_Event&);
 		std::string getInputText() { return inputText; };
 	protected:
@@ -25,7 +25,7 @@ namespace fs19 {
 		bool renderText = false;
 		bool editingActive = false;
 		SDL_Texture* texture;
-		SDL_Color textColor = { 0,0,0,0xFF };
+		
 	};
 }
 #endif 

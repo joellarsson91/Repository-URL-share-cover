@@ -29,7 +29,6 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
-		const Uint8* keyboard_state_array = SDL_GetKeyboardState(NULL);
 
 		// 32-bits heltal, hur många millisec mellan tick
 		Uint32 tickInterval = 1000 / FPS;
@@ -40,36 +39,100 @@ namespace fs19 {
 
 
 			while (SDL_PollEvent(&eve)) {
-				switch (eve.type) {
+				//User requests quit
+				if (eve.type == SDL_QUIT)
+				{
+					quit = true;
+				}
+				/*switch (eve.type) {
 				case SDL_QUIT: quit = true; break;
-				case SDL_MOUSEBUTTONDOWN:
-					for (Sprite* s : eventQueue) {
-						s->mouseDown(eve);
-					}
-					break;
-				case SDL_MOUSEBUTTONUP:
-					for (Sprite* s : eventQueue) {
-						s->mouseUp(eve);
-					}
-					break;
-				case SDL_KEYDOWN:
-					for (Sprite* s : eventQueue) {
-						s->keyDown(eve);
-					}
-					break;
+				*///case SDL_MOUSEBUTTONDOWN:
+				//	for (Sprite* s : eventQueue) {
+				//		s->mouseDown(eve);
+				//	}
+				//	break;
+				//case SDL_MOUSEBUTTONUP:
+				//	for (Sprite* s : eventQueue) {
+				//		s->mouseUp(eve);
+				//	}
+				//	break;
+				//case SDL_KEYDOWN:
+				//	for (Sprite* s : eventQueue) {
+				//		s->keyDown(eve);
+				//	}
+				//	break;
 
-				case SDL_KEYUP:
-					for (Sprite* s : eventQueue) {
-						s->keyUp(eve);
-					}
-				case SDL_TEXTINPUT:
-					for (Sprite* s : eventQueue) {
-						s->textInput(eve);
-					}
-					break;
+				//case SDL_KEYUP:
+				//	for (Sprite* s : eventQueue) {
+				//		s->keyUp(eve);
+				//	}
+				//case SDL_TEXTINPUT:
+				//	for (Sprite* s : eventQueue) {
+				//		s->textInput(eve);
+				//	}
+				//	break;
+				//}
+			} //Poll_Event While
+
+			
+			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+			if (currentKeyStates[SDL_SCANCODE_UP]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+			else if (currentKeyStates[SDL_SCANCODE_DOWN]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
 				}
 			}
 
+			else if (currentKeyStates[SDL_SCANCODE_LEFT]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+
+			else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+
+			if (currentKeyStates[SDL_MOUSEBUTTONUP]) {
+				for (Sprite* s : eventQueue) {
+					s->mouseUp(eve);
+				}
+			}
+			else if (currentKeyStates[SDL_MOUSEBUTTONDOWN]) {
+				for (Sprite* s : eventQueue) {
+					s->mouseDown(eve);
+				}
+			}
+
+			if (currentKeyStates[SDL_SCANCODE_W]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+			else if (currentKeyStates[SDL_SCANCODE_S]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+					
+				}
+			}
+
+			else if (currentKeyStates[SDL_SCANCODE_D]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+
+			else if (currentKeyStates[SDL_SCANCODE_A]) {
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
 			//Tick
 			for (Sprite* s : eventQueue) {
 				s->tick();

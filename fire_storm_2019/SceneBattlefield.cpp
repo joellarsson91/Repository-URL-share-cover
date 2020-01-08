@@ -83,7 +83,37 @@ namespace fs19 {
 				setPosition(+3, 0);
 
 			}
+
+			if (eve.key.keysym.sym == SDLK_SPACE) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y);
+
+			}
 		}
+
+	};
+
+	class Boulder : public Sprite {
+	public:
+		static Boulder* getInstance(int x, int y) {
+			return new Boulder(x, y);
+		}
+
+		Boulder(int x, int y) : Sprite(x, y, 40, 40) {
+			texture = IMG_LoadTexture(sys.get_ren, "pixelBoulder.jpg");
+		}
+		
+		void draw() const {
+			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
+
+		}
+		void tick() {
+		//Kanske måste definieras för att gå snabbare/långsammare
+		};
+
+		~Boulder();
+
+	private:
+		SDL_Texture* texture;
 
 	};
 

@@ -18,6 +18,7 @@ public:
 	void keyUp(const SDL_Event&) {};
 	virtual void keyDown(const SDL_Event&) {}
 
+
 protected:
 	PlayerSprite(int x, int y, int v, int h);
 

@@ -35,7 +35,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 100, 50){}
+		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png"){}
 
 
 
@@ -64,7 +64,7 @@ namespace fs19 {
 
 	class Player2 : public PlayerSprite {
 	public:
-		Player2() : PlayerSprite(700, 300, 100, 50) {}
+		Player2() : PlayerSprite(700, 300, 100, 50, "pixelCatapult.png") {}
 		
 
 

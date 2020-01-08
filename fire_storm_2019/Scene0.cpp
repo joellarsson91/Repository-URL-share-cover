@@ -57,6 +57,13 @@ namespace fs19 {
 		walkAnimation(): AnimationSprite(400,400,95,161,"Walkanimation.png",7,3){}
 
 	};
+	
+	
+	
+	class runAnimation : public AnimationSprite {
+	public:
+		runAnimation() : AnimationSprite(300, 200, 125, 125, "Runanimation.png", 4, 4) {}
+	};
 
 
 
@@ -73,6 +80,7 @@ namespace fs19 {
 		addSprites(background);
 		addSprites(new NewGameButton());
 		addSprites(new walkAnimation());
+		addSprites(new runAnimation());
 
 	}
 }

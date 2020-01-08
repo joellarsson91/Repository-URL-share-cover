@@ -25,25 +25,20 @@ namespace fs19 {
 		frame++;
 		static int clips = 0;
 		if (frame % 5 == 0) {
+			clips++;
 			frameClip.x += getRect().w;
 			if (clips%xFrameCount == 0) {
 				frameClip.y += getRect().h;	
 				frameClip.x = 0;
 			}
-			std::cout << clips;
-			std::cout << " ";
-			clips++;
+			
 		}
 		 
-
-
-
 		if (clips == xFrameCount*yFrameCount) {
 			frameClip.y = 0;
 			clips = 0;
 		 }
-		 
-		 
+		  
 		if (frame == 60) 
 			frame = 0;
 		 

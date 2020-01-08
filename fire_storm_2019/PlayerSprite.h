@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Sprite.h"
 #include <vector>
+#include <string>
 namespace fs19{
 
 class PlayerSprite : public Sprite
@@ -10,7 +11,7 @@ class PlayerSprite : public Sprite
 public:
 
 
-	static PlayerSprite* getInstance(int x, int y, int w, int h);
+	static PlayerSprite* getInstance(int x, int y, int w, int h, std::string path);
 	~PlayerSprite();
 	void draw() const;
 	void tick() {};
@@ -20,11 +21,10 @@ public:
 
 
 protected:
-	PlayerSprite(int x, int y, int v, int h);
+	PlayerSprite(int x, int y, int v, int h, std::string path);
 
 private:
 	bool isTurnedLeft = false;
-
 	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
 };
 }

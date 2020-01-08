@@ -40,22 +40,19 @@ namespace fs19 {
 
 			while (SDL_PollEvent(&eve)) {
 				//User requests quit
-				if (eve.type == SDL_QUIT)
-				{
-					quit = true;
-				}
-				/*switch (eve.type) {
+
+				switch (eve.type) {
 				case SDL_QUIT: quit = true; break;
-				*///case SDL_MOUSEBUTTONDOWN:
-				//	for (Sprite* s : eventQueue) {
-				//		s->mouseDown(eve);
-				//	}
-				//	break;
-				//case SDL_MOUSEBUTTONUP:
-				//	for (Sprite* s : eventQueue) {
-				//		s->mouseUp(eve);
-				//	}
-				//	break;
+				case SDL_MOUSEBUTTONDOWN:
+					for (Sprite* s : eventQueue) {
+						s->mouseDown(eve);
+					}
+					break;
+				case SDL_MOUSEBUTTONUP:
+					for (Sprite* s : eventQueue) {
+						s->mouseUp(eve);
+					}
+					break;
 				//case SDL_KEYDOWN:
 				//	for (Sprite* s : eventQueue) {
 				//		s->keyDown(eve);
@@ -71,7 +68,7 @@ namespace fs19 {
 				//		s->textInput(eve);
 				//	}
 				//	break;
-				//}
+				}
 			} //Poll_Event While
 
 			
@@ -99,17 +96,7 @@ namespace fs19 {
 				}
 			}
 
-			if (currentKeyStates[SDL_MOUSEBUTTONUP]) {
-				for (Sprite* s : eventQueue) {
-					s->mouseUp(eve);
-				}
-			}
-			else if (currentKeyStates[SDL_MOUSEBUTTONDOWN]) {
-				std::cout << "hejsan";
-				for (Sprite* s : eventQueue) {
-					s->mouseDown(eve);
-				}
-			}
+
 
 			if (currentKeyStates[SDL_SCANCODE_W]) {
 				for (Sprite* s : eventQueue) {

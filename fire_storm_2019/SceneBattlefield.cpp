@@ -41,18 +41,18 @@ namespace fs19 {
 
 
 		void keyDown(const SDL_Event& eve) {
-			if (eve.key.keysym.sym == SDLK_UP) {
+			if (eve.key.keysym.sym == SDLK_w) {
 				setPosition(0, -3);
 			}
-			if (eve.key.keysym.sym == SDLK_DOWN) {
+			if (eve.key.keysym.sym == SDLK_s) {
 				setPosition(0, +3);
 			}
-			if (eve.key.keysym.sym == SDLK_LEFT) {
+			if (eve.key.keysym.sym == SDLK_a) {
 				setPosition(-3, 0);
 
 			}
 			//scancodes SDLK_RIGHT
-			if (eve.key.keysym.sym == SDLK_RIGHT) {
+			if (eve.key.keysym.sym == SDLK_d) {
 				setPosition(+3, 0);
 
 			}
@@ -69,17 +69,17 @@ namespace fs19 {
 
 
 		void keyDown(const SDL_Event& eve) {
-			if (eve.key.keysym.sym == SDLK_w) {
+			if (eve.key.keysym.sym == SDLK_UP) {
 				setPosition(0, -3);
 			}
-			if (eve.key.keysym.sym == SDLK_s) {
+			if (eve.key.keysym.sym == SDLK_DOWN) {
 				setPosition(0, +3);
 			}
-			if (eve.key.keysym.sym == SDLK_a) {
+			if (eve.key.keysym.sym == SDLK_LEFT) {
 				setPosition(-3, 0);
 
 			}
-			if (eve.key.keysym.sym == SDLK_d) {
+			if (eve.key.keysym.sym == SDLK_RIGHT) {
 				setPosition(+3, 0);
 
 			}

@@ -105,6 +105,7 @@ namespace fs19 {
 				}
 			}
 			else if (currentKeyStates[SDL_MOUSEBUTTONDOWN]) {
+				std::cout << "hejsan";
 				for (Sprite* s : eventQueue) {
 					s->mouseDown(eve);
 				}

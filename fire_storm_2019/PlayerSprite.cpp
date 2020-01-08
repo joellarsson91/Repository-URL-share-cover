@@ -14,9 +14,9 @@ namespace fs19 {
 
 	PlayerSprite::PlayerSprite(int x, int y, int w, int h, std::string path) :Sprite(x,y,w,h){
 
-		pixelCatapult = IMG_LoadTexture(sys.get_ren(), path.c_str);
-		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(), path.c_str);
-		center = { x + (w / 2),(y + h / 2) };
+		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult.png");
+		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft.png");
+		
 	}
 
 
@@ -31,10 +31,10 @@ namespace fs19 {
 
 		if (isTurnedLeft) {
 
-			SDL_RenderCopyEx(sys.get_ren(), pixelCatapultLeft, NULL, &getRect(), 180, &center, SDL_FLIP_VERTICAL);
+			SDL_RenderCopy(sys.get_ren(), pixelCatapultLeft, NULL, &getRect());
 		}
 		else {
-			SDL_RenderCopyEx(sys.get_ren(), pixelCatapult, NULL, &getRect(),0,&center, SDL_FLIP_VERTICAL);
+			SDL_RenderCopy(sys.get_ren(), pixelCatapult, NULL, &getRect());
 		}
 
 		

@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Sprite.h"
 #include <vector>
+#include <string>
 namespace fs19{
 
 class PlayerSprite : public Sprite
@@ -23,7 +24,6 @@ protected:
 
 private:
 	bool isTurnedLeft = false;
-	SDL_Point center;
 	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
 };
 }

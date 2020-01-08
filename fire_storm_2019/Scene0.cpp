@@ -8,6 +8,7 @@
 #include "SceneMenu.h"
 #include "GameEngine.h"
 #include "TextBox.h"
+#include "AnimationSprite.h"
 namespace fs19 {
 
 
@@ -50,10 +51,20 @@ namespace fs19 {
 
 
 	};
-	//class TextEditor : public TextBox {
-	//public:
-	//	TextEditor() :TextBox(200,100,100,100){}
-	//};
+
+	class walkAnimation : public AnimationSprite {
+	public:
+		walkAnimation(): AnimationSprite(400,400,95,161,"Walkanimation.png",7,3){}
+
+	};
+	
+	
+	
+	class runAnimation : public AnimationSprite {
+	public:
+		runAnimation() : AnimationSprite(300, 200, 125, 125, "Runanimation.png", 4, 4) {}
+	};
+
 
 
 
@@ -68,7 +79,8 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		//addSprites(new TextEditor());
+		addSprites(new walkAnimation());
+		addSprites(new runAnimation());
 
 	}
 }

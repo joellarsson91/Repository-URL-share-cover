@@ -6,15 +6,17 @@
 
 namespace fs19 {
 
-	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h){
-		return new PlayerSprite(x, y, w, h);
+	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, std::string path){
+		return new PlayerSprite(x, y, w, h, path);
+		
 	
 	}
 
-	PlayerSprite::PlayerSprite(int x, int y, int w, int h) :Sprite(x,y,w,h){
+	PlayerSprite::PlayerSprite(int x, int y, int w, int h, std::string path) :Sprite(x,y,w,h){
 
-		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult.png");
-		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(), "pixelCatapultLeft.png");
+		pixelCatapult = IMG_LoadTexture(sys.get_ren(), path.c_str);
+		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(), path.c_str);
+		center = { x + (w / 2),(y + h / 2) };
 	}
 
 
@@ -29,10 +31,10 @@ namespace fs19 {
 
 		if (isTurnedLeft) {
 
-			SDL_RenderCopy(sys.get_ren(), pixelCatapultLeft, NULL, &getRect());
+			SDL_RenderCopyEx(sys.get_ren(), pixelCatapultLeft, NULL, &getRect(), 180, &center, SDL_FLIP_VERTICAL);
 		}
 		else {
-			SDL_RenderCopy(sys.get_ren(), pixelCatapult, NULL, &getRect());
+			SDL_RenderCopyEx(sys.get_ren(), pixelCatapult, NULL, &getRect(),0,&center, SDL_FLIP_VERTICAL);
 		}
 
 		

@@ -16,11 +16,12 @@ public:
 	//virtual void populateSpriteList();
 	const std::vector<Sprite*> getSpriteList() const { return spriteList; }
 	void addSprites(Sprite* s);
+	
 
 protected:
 	//Konstruktor man inte ska kunna bygga objekt av
-	Scene();
 	std::vector<Sprite*> spriteList;
+	Scene();
 private:
 
 	

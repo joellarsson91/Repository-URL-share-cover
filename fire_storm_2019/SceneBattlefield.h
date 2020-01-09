@@ -11,6 +11,8 @@ public:
 
 
 };
+
+extern SceneBattlefield sb;
 }
 #endif
 

@@ -4,9 +4,11 @@
 #include <SDL_image.h>
 #include "System.h"
 #include "PlayerSprite.h"
-
+#include "Scene.h"
 
 namespace fs19 {
+
+	SceneBattlefield sb;
 
 	SceneBattlefield::~SceneBattlefield() {
 
@@ -14,7 +16,7 @@ namespace fs19 {
 	}
 
 
-	
+
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
@@ -32,6 +34,31 @@ namespace fs19 {
 
 	};
 
+	class Boulder : public Sprite {
+	public:
+		static Boulder* getInstance(int x, int y) {
+			return new Boulder(x, y);
+		}
+
+		Boulder(int x, int y) : Sprite(x, y, 100, 100) {
+			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
+		}
+
+		void draw() const {
+			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
+
+		}
+		void tick() {
+			//Kanske måste definieras för att gå snabbare/långsammare
+		};
+
+		~Boulder() {
+		};
+
+	private:
+		SDL_Texture* texture;
+
+	};
 
 	class Player1 : public PlayerSprite {
 	public:
@@ -120,9 +147,17 @@ namespace fs19 {
 				setPosition(3, 0);
 
 			}
+
+			if (eve.key.keysym.sym == SDLK_f) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y);
+				sb.addSprites(boulder);
+				
+			}
 		}
 
 	};
+
+
 
 
 

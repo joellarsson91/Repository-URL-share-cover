@@ -31,7 +31,9 @@ namespace fs19 {
 			//Kanske måste definieras för att gå snabbare/långsammare
 		};
 
-		~Boulder();
+		~Boulder() {
+
+		}
 
 	private:
 		SDL_Texture* texture;

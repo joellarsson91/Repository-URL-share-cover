@@ -26,6 +26,9 @@ namespace fs19 {
 		SDL_DestroyTexture(pixelCatapultLeft);
 	}
 
+	void PlayerSprite::tick() {
+		setPosition(xVel, yVel);
+	}
 
 
 	void PlayerSprite::draw() const {

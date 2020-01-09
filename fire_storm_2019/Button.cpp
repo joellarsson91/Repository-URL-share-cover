@@ -5,7 +5,7 @@
 #include <SDL_image.h>
 
 
-namespace fs19 {
+namespace fs19 {    
     Button::Button(int x, int y, int w, int h, std::string txt) :Sprite(x, y, w, h) {
         SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);

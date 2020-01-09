@@ -4,9 +4,11 @@
 #include <SDL_image.h>
 #include "System.h"
 #include "PlayerSprite.h"
-
+#include "Scene.h"
 
 namespace fs19 {
+
+	SceneBattlefield sb;
 
 	SceneBattlefield::~SceneBattlefield() {
 
@@ -38,7 +40,7 @@ namespace fs19 {
 			return new Boulder(x, y);
 		}
 
-		Boulder(int x, int y) : Sprite(x, y, 40, 40) {
+		Boulder(int x, int y) : Sprite(x, y, 100, 100) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
 		}
 
@@ -109,8 +111,10 @@ namespace fs19 {
 
 			}
 
-			if (eve.key.keysym.sym == SDLK_SPACE) {
+			if (eve.key.keysym.sym == SDLK_f) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y);
+				sb.addSprites(boulder);
+				
 			}
 		}
 

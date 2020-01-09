@@ -3,7 +3,6 @@
 namespace fs19 {
 
 
-
 	Scene::Scene()  {
 
 	}

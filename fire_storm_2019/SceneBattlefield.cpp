@@ -35,25 +35,43 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png"){}
+		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png") {}
 
 
 
 
 		void keyDown(const SDL_Event& eve) {
-			if (eve.key.keysym.sym == SDLK_w) {
+
+			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+			if (currentKeyStates[SDL_SCANCODE_W] && currentKeyStates[SDL_SCANCODE_A]) {
+				setPosition(-3, -3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_W] && currentKeyStates[SDL_SCANCODE_D]) {
+				setPosition(3, -3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_S] && currentKeyStates[SDL_SCANCODE_A]) {
+				setPosition(-3, 3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_S] && currentKeyStates[SDL_SCANCODE_D]) {
+				setPosition(3, 3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_W]) {
 				setPosition(0, -3);
 			}
-			if (eve.key.keysym.sym == SDLK_s) {
-				setPosition(0, +3);
+			else if (currentKeyStates[SDL_SCANCODE_S]) {
+				setPosition(0, 3);
 			}
-			if (eve.key.keysym.sym == SDLK_a) {
+			else if (currentKeyStates[SDL_SCANCODE_A]) {
 				setPosition(-3, 0);
 
 			}
-			//scancodes SDLK_RIGHT
-			if (eve.key.keysym.sym == SDLK_d) {
-				setPosition(+3, 0);
+			else if (currentKeyStates[SDL_SCANCODE_D]) {
+				setPosition(3, 0);
 
 			}
 		}
@@ -65,22 +83,41 @@ namespace fs19 {
 	class Player2 : public PlayerSprite {
 	public:
 		Player2() : PlayerSprite(700, 300, 100, 50, "pixelCatapult.png") {}
-		
+
 
 
 		void keyDown(const SDL_Event& eve) {
-			if (eve.key.keysym.sym == SDLK_UP) {
+
+			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+			if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_LEFT]) {
+				setPosition(-3, -3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				setPosition(3, -3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_LEFT]) {
+				setPosition(-3, 3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				setPosition(3, 3);
+
+			}
+			else if (currentKeyStates[SDL_SCANCODE_UP]) {
 				setPosition(0, -3);
 			}
-			if (eve.key.keysym.sym == SDLK_DOWN) {
-				setPosition(0, +3);
+			else if (currentKeyStates[SDL_SCANCODE_DOWN]) {
+				setPosition(0, 3);
 			}
-			if (eve.key.keysym.sym == SDLK_LEFT) {
+			else if (currentKeyStates[SDL_SCANCODE_LEFT]) {
 				setPosition(-3, 0);
 
 			}
-			if (eve.key.keysym.sym == SDLK_RIGHT) {
-				setPosition(+3, 0);
+			else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				setPosition(3, 0);
 
 			}
 		}

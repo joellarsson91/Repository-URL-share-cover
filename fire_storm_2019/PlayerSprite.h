@@ -14,11 +14,14 @@ public:
 	static PlayerSprite* getInstance(int x, int y, int w, int h, std::string path);
 	~PlayerSprite();
 	void draw() const;
-	void tick() {};
+	void tick();
 	void setIsTurnedLeft(bool b) { isTurnedLeft = b; };
 	void keyUp(const SDL_Event&) {};
 	virtual void keyDown(const SDL_Event&) {}
-
+	void setXVel(int i) { xVel=i; }
+	void setYVel(int i) { yVel = i; }
+	int getXVel() { return xVel; }
+	int getYVel() { return yVel; }
 
 protected:
 	PlayerSprite(int x, int y, int v, int h, std::string path);
@@ -26,6 +29,7 @@ protected:
 private:
 	bool isTurnedLeft = false;
 	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
+	int xVel = 0, yVel = 0;
 };
 }
 #endif

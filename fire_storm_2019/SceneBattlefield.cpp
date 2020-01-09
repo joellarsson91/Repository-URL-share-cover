@@ -59,6 +59,8 @@ namespace fs19 {
 
 	};
 
+
+
 	class Player1 : public PlayerSprite {
 	public:
 		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png") {}
@@ -70,40 +72,47 @@ namespace fs19 {
 
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
-			if (currentKeyStates[SDL_SCANCODE_W] && currentKeyStates[SDL_SCANCODE_A]) {
-				setPosition(-3, -3);
+
+			if (currentKeyStates[SDL_SCANCODE_W]) {
+				setYVel(-3);
+			}
+			if (currentKeyStates[SDL_SCANCODE_S]) {
+				setYVel(3);
+			}
+			if (currentKeyStates[SDL_SCANCODE_A]) {
+				setXVel(-3);
 
 			}
-			else if (currentKeyStates[SDL_SCANCODE_W] && currentKeyStates[SDL_SCANCODE_D]) {
-				setPosition(3, -3);
+			if (currentKeyStates[SDL_SCANCODE_D]) {
+				setXVel(3);
 
 			}
-			else if (currentKeyStates[SDL_SCANCODE_S] && currentKeyStates[SDL_SCANCODE_A]) {
-				setPosition(-3, 3);
-
-			}
-			else if (currentKeyStates[SDL_SCANCODE_S] && currentKeyStates[SDL_SCANCODE_D]) {
-				setPosition(3, 3);
-
-			}
-			else if (currentKeyStates[SDL_SCANCODE_W]) {
-				setPosition(0, -3);
-			}
-			else if (currentKeyStates[SDL_SCANCODE_S]) {
-				setPosition(0, 3);
-			}
-			else if (currentKeyStates[SDL_SCANCODE_A]) {
-				setPosition(-3, 0);
-
-			}
-			else if (currentKeyStates[SDL_SCANCODE_D]) {
-				setPosition(3, 0);
-
-			}
-			
 			if (currentKeyStates[SDL_SCANCODE_F]) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
 				ge.add(boulder);
+
+			}
+		}
+		void keyUp(const SDL_Event& eve) {
+			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+			if (!currentKeyStates[SDL_SCANCODE_W]) {
+
+				if (getYVel() < 0)
+					setYVel(0);
+			}
+			if (!currentKeyStates[SDL_SCANCODE_S]) {
+				if (getYVel() > 0)
+					setYVel(0);
+			}
+			if (!currentKeyStates[SDL_SCANCODE_A]) {
+				if (getXVel() < 0)
+					setXVel(0);
+
+			}
+			if (!currentKeyStates[SDL_SCANCODE_D]) {
+				if (getXVel() > 0)
+					setXVel(0);
 
 			}
 		}
@@ -122,43 +131,43 @@ namespace fs19 {
 
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
-			if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_LEFT]) {
-				setPosition(-3, -3);
-
+			if (currentKeyStates[SDL_SCANCODE_UP]) {
+				setYVel(-3);
 			}
-			else if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				setPosition(3, -3);
-
+			if (currentKeyStates[SDL_SCANCODE_DOWN]) {
+				setYVel(3);
 			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_LEFT]) {
-				setPosition(-3, 3);
-
+			if (currentKeyStates[SDL_SCANCODE_LEFT]) {
+				setXVel(-3);
 			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				setPosition(3, 3);
-
+			if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				setXVel(3);
 			}
-			else if (currentKeyStates[SDL_SCANCODE_UP]) {
-				setPosition(0, -3);
-			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN]) {
-				setPosition(0, 3);
-			}
-			else if (currentKeyStates[SDL_SCANCODE_LEFT]) {
-				setPosition(-3, 0);
-
-			}
-			else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				setPosition(3, 0);
-
-			}
-
 		}
+		void keyUp(const SDL_Event& eve) {
+			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
+			if (!currentKeyStates[SDL_SCANCODE_UP]) {
+
+				if (getYVel() < 0)
+					setYVel(0);
+			}
+			if (!currentKeyStates[SDL_SCANCODE_DOWN]) {
+				if (getYVel() > 0)
+					setYVel(0);
+			}
+			if (!currentKeyStates[SDL_SCANCODE_LEFT]) {
+				if (getXVel() < 0)
+					setXVel(0);
+
+			}
+			if (!currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				if (getXVel() > 0)
+					setXVel(0);
+
+			}
+		}
 	};
-
-
-
 
 
 	SceneBattlefield::SceneBattlefield() {

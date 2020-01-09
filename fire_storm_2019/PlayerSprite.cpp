@@ -14,8 +14,9 @@ namespace fs19 {
 
 	PlayerSprite::PlayerSprite(int x, int y, int w, int h, std::string path) :Sprite(x,y,w,h){
 
-		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult.png");
+		pixelCatapult = IMG_LoadTexture(sys.get_ren(), path.c_str());
 		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft.png");
+		center = { x + (w / 2), y + (h / 2) };
 		
 	}
 

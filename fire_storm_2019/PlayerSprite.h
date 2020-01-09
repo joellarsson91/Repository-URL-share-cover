@@ -25,6 +25,8 @@ protected:
 private:
 	bool isTurnedLeft = false;
 	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
+	SDL_Point center;
+	int xVel, yVel;
 };
 }
 #endif

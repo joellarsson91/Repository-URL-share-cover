@@ -53,74 +53,100 @@ namespace fs19 {
 						s->mouseUp(eve);
 					}
 					break;
-				//case SDL_KEYDOWN:
-				//	for (Sprite* s : eventQueue) {
-				//		s->keyDown(eve);
-				//	}
-				//	break;
+				case SDL_KEYDOWN:
+					for (Sprite* s : eventQueue) {
+						s->keyDown(eve);
+					}
+					break;
 
-				//case SDL_KEYUP:
-				//	for (Sprite* s : eventQueue) {
-				//		s->keyUp(eve);
-				//	}
-				//case SDL_TEXTINPUT:
-				//	for (Sprite* s : eventQueue) {
-				//		s->textInput(eve);
-				//	}
-				//	break;
+				case SDL_KEYUP:
+					for (Sprite* s : eventQueue) {
+						s->keyUp(eve);
+					}
+				case SDL_TEXTINPUT:
+					for (Sprite* s : eventQueue) {
+						s->textInput(eve);
+					}
+					break;
 				}
 			} //Poll_Event While
 
 			
-			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-			if (currentKeyStates[SDL_SCANCODE_UP]) {
+			/*const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+			if (currentKeyStates[SDL_SCANCODE_UP]&& currentKeyStates[SDL_SCANCODE_LEFT]) {
+				std::cout << "1";
 				for (Sprite* s : eventQueue) {
 					s->keyDown(eve);
 				}
 			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN]) {
+			else if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				std::cout << "2";
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_LEFT]) {
+				std::cout << "3";
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}
+			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
+				std::cout << "4";
+				for (Sprite* s : eventQueue) {
+					s->keyDown(eve);
+				}
+			}*/
+			/*if (currentKeyStates[SDL_SCANCODE_UP]) {
 				for (Sprite* s : eventQueue) {
 					s->keyDown(eve);
 				}
 			}
 
-			else if (currentKeyStates[SDL_SCANCODE_LEFT]) {
+			if (currentKeyStates[SDL_SCANCODE_DOWN]) {
 				for (Sprite* s : eventQueue) {
 					s->keyDown(eve);
 				}
 			}
 
-			else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
+			if (currentKeyStates[SDL_SCANCODE_LEFT]) {
 				for (Sprite* s : eventQueue) {
 					s->keyDown(eve);
 				}
 			}
 
-
-
-			if (currentKeyStates[SDL_SCANCODE_W]) {
+			if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
 				for (Sprite* s : eventQueue) {
 					s->keyDown(eve);
 				}
-			}
-			else if (currentKeyStates[SDL_SCANCODE_S]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-					
-				}
-			}
+			}*/
 
-			else if (currentKeyStates[SDL_SCANCODE_D]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
 
-			else if (currentKeyStates[SDL_SCANCODE_A]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
+
+			//if (currentKeyStates[SDL_SCANCODE_W]) {
+			//	for (Sprite* s : eventQueue) {
+			//		s->keyDown(eve);
+			//	}
+			//}
+			//else if (currentKeyStates[SDL_SCANCODE_S]) {
+			//	for (Sprite* s : eventQueue) {
+			//		s->keyDown(eve);
+			//		
+			//	}
+			//}
+
+			//else if (currentKeyStates[SDL_SCANCODE_D]) {
+			//	for (Sprite* s : eventQueue) {
+			//		s->keyDown(eve);
+			//	}
+			//}
+
+			//else if (currentKeyStates[SDL_SCANCODE_A]) {
+			//	for (Sprite* s : eventQueue) {
+			//		s->keyDown(eve);
+			//	}
+			//}
 			//Tick
 			for (Sprite* s : eventQueue) {
 				s->tick();

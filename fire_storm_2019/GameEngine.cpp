@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include "System.h"
 #include <iostream>
+#define FPS 60
 
 namespace fs19 {
 
@@ -22,8 +23,9 @@ namespace fs19 {
 
 	void GameEngine::run() {
 		bool quit = false;
-
+		Uint32 tickInterval = 1000 / FPS;
 		while (!quit){//händelse-loopen
+			Uint32 nextTick = SDL_GetTicks() + tickInterval;
 			SDL_Event eve;//händelsekön
 			while (SDL_PollEvent(&eve)) {
 				switch (eve.type) {
@@ -59,6 +61,10 @@ namespace fs19 {
 				s->draw();
 			}
 			SDL_RenderPresent(sys.get_ren());
+
+			int delay = nextTick - SDL_GetTicks();
+			if (delay > 0)
+				SDL_Delay(delay);
 
 			
 		}

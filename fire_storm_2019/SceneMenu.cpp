@@ -69,7 +69,7 @@ namespace fs19{
 	};
 	class TextEditor : public TextBox {
 	public:
-		TextEditor() :TextBox(200, 100, 100, 100) {}
+		TextEditor() :TextBox(200, 100, 100, 100,"player 1") {}
 	};
 
 

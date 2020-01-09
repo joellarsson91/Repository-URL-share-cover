@@ -10,8 +10,8 @@ namespace fs19 {
 		SDL_DestroyTexture(texture);
 
 	}
-	TextBox::TextBox(int x, int y, int w, int h) : Sprite(x, y, w, h) {
-		inputText = "some text";
+	TextBox::TextBox(int x, int y, int w, int h, std::string temp) : Sprite(x, y, w, h) {
+		inputText = temp;
 		renderText = true;
 		SDL_DestroyTexture(texture);
 		SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), inputText.c_str(), { 0,0,0 });
@@ -20,8 +20,8 @@ namespace fs19 {
 
 	}
 
-	TextBox* TextBox::getInstance(int x, int y, int w, int h) {
-		return new TextBox(x, y, w, h);
+	TextBox* TextBox::getInstance(int x, int y, int w, int h, std::string temp) {
+		return new TextBox(x, y, w, h,temp);
 
 
 	}

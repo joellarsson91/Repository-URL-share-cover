@@ -82,6 +82,7 @@ namespace fs19 {
 		addSprites(new walkAnimation());
 		addSprites(new runAnimation());
 
+
 	}
 }
 

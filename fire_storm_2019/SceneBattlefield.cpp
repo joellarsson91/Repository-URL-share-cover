@@ -111,7 +111,6 @@ namespace fs19 {
 
 			if (eve.key.keysym.sym == SDLK_SPACE) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y);
-
 			}
 		}
 

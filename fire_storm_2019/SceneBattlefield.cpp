@@ -8,7 +8,6 @@
 
 namespace fs19 {
 
-	SceneBattlefield sb;
 
 	SceneBattlefield::~SceneBattlefield() {
 
@@ -36,11 +35,11 @@ namespace fs19 {
 
 	class Boulder : public Sprite {
 	public:
-		static Boulder* getInstance(int x, int y) {
-			return new Boulder(x, y);
+		static Boulder* getInstance(int x, int y, std::string path) {
+			return new Boulder(x, y, path);
 		}
 
-		Boulder(int x, int y) : Sprite(x, y, 100, 100) {
+		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
 		}
 
@@ -101,6 +100,12 @@ namespace fs19 {
 				setPosition(3, 0);
 
 			}
+			
+			if (currentKeyStates[SDL_SCANCODE_F]) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				ge.add(boulder);
+
+			}
 		}
 
 
@@ -148,11 +153,6 @@ namespace fs19 {
 
 			}
 
-			if (eve.key.keysym.sym == SDLK_f) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y);
-				sb.addSprites(boulder);
-				
-			}
 		}
 
 	};

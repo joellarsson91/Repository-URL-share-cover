@@ -85,7 +85,7 @@ namespace fs19 {
 			}
 
 			if (eve.key.keysym.sym == SDLK_SPACE) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y);
+//				Sprite* boulder = new Boulder(getRect().x, getRect().y);
 
 			}
 		}
@@ -99,7 +99,7 @@ namespace fs19 {
 		}
 
 		Boulder(int x, int y) : Sprite(x, y, 40, 40) {
-			texture = IMG_LoadTexture(sys.get_ren, "pixelBoulder.jpg");
+//			texture = IMG_LoadTexture(sys.get_ren, "pixelBoulder.jpg");
 		}
 		
 		void draw() const {

@@ -14,7 +14,32 @@ namespace fs19 {
 	}
 
 
-	
+	class Boulder : public Sprite {
+	public:
+		static Boulder* getInstance(int x, int y) {
+			return new Boulder(x, y);
+		}
+
+		Boulder(int x, int y) : Sprite(x, y, 40, 40) {
+			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
+		}
+
+		void draw() const {
+			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
+		}
+		void tick() {
+			//Kanske måste definieras för att gå snabbare/långsammare
+		};
+
+		~Boulder();
+
+	private:
+		SDL_Texture* texture;
+
+	};
+
+
+
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
@@ -35,7 +60,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png"){}
+		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png") {}
 
 
 
@@ -65,7 +90,7 @@ namespace fs19 {
 	class Player2 : public PlayerSprite {
 	public:
 		Player2() : PlayerSprite(700, 300, 100, 50, "pixelCatapult.png") {}
-		
+
 
 
 		void keyDown(const SDL_Event& eve) {
@@ -85,35 +110,11 @@ namespace fs19 {
 			}
 
 			if (eve.key.keysym.sym == SDLK_SPACE) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y);
 
+				//Boulder* b = Boulder::getInstance(1, 1);
+				
 			}
 		}
-
-	};
-
-	class Boulder : public Sprite {
-	public:
-		static Boulder* getInstance(int x, int y) {
-			return new Boulder(x, y);
-		}
-
-		Boulder(int x, int y) : Sprite(x, y, 40, 40) {
-			texture = IMG_LoadTexture(sys.get_ren, "pixelBoulder.jpg");
-		}
-		
-		void draw() const {
-			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
-
-		}
-		void tick() {
-		//Kanske måste definieras för att gå snabbare/långsammare
-		};
-
-		~Boulder();
-
-	private:
-		SDL_Texture* texture;
 
 	};
 

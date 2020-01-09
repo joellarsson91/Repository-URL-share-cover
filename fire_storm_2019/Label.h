@@ -12,6 +12,7 @@ namespace fs19 {
 		static Label* getInstance(int x, int y, int w, int h, std::string txt);
 		//label måste ha draw från component
 		void draw() const;
+		void tick() {};
 		std::string getText() const;
 		void setText(std::string newText);
 		~Label();

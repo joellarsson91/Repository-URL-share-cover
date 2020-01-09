@@ -25,17 +25,9 @@ public:
 		SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 	}
-	//this isn't working yet
-	void tick() {
-		counter++;
-		if (&getRect().y <= 0)
-			ses.remove(this);
-		else if (counter % 10 == 0)
-			rect.y--;
-	}
+	void tick() {};
 private:
 	SDL_Texture* texture;
-	int counter = 0;
 
 
 };

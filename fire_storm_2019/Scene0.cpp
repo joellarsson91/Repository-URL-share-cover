@@ -7,6 +7,8 @@
 #include <SDL.h>
 #include "SceneMenu.h"
 #include "GameEngine.h"
+#include "TextBox.h"
+#include "AnimationSprite.h"
 namespace fs19 {
 
 
@@ -30,6 +32,8 @@ namespace fs19 {
 				ge.add(s);
 			}
 		}
+
+		void tick() {};
 	};
 	class Background : public Sprite {
 	public:
@@ -41,11 +45,26 @@ namespace fs19 {
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		void tick() {};
 	private:
 		SDL_Texture* texture;
 
 
 	};
+
+	class walkAnimation : public AnimationSprite {
+	public:
+		walkAnimation(): AnimationSprite(400,400,95,161,"Walkanimation.png",7,3){}
+
+	};
+	
+	
+	
+	class runAnimation : public AnimationSprite {
+	public:
+		runAnimation() : AnimationSprite(300, 200, 125, 125, "Runanimation.png", 4, 4) {}
+	};
+
 
 
 
@@ -60,7 +79,8 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-
+		addSprites(new walkAnimation());
+		addSprites(new runAnimation());
 
 	}
 }

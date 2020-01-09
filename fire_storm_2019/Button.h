@@ -11,6 +11,7 @@ public:
 	void mouseDown(const SDL_Event&);
 	void mouseUp(const SDL_Event&);
 	void draw() const;
+	void tick() {};
 	virtual void perform(Button* source) {}
 	~Button();
 protected:

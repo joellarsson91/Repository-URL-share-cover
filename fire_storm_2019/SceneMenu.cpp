@@ -6,6 +6,9 @@
 #include "System.h"
 #include "GameEngine.h"
 #include "Scene0.h"
+#include "Label.h"
+#include "SceneBattlefield.h"
+#include "TextBox.h"
 namespace fs19{
 
 
@@ -14,23 +17,37 @@ namespace fs19{
 
 	}
 
+	class PlayerLabel : public Label {
+	public:
+
+		PlayerLabel() : Label(400, 400, 200, 50, "Player 1"){}
+
+	};
+
+
+	class PlayerLabelTwo : public Label {
+	public:
+
+		PlayerLabelTwo() : Label(200, 200, 200, 50, "Player 2") {}
+
+	};
+
+
 	class StartGameButton : public Button {
 	public:
-		StartGameButton() :Button(100, 100, 100, 50, "Start 2 Player Game"){ }
+	StartGameButton() :Button(300, 300, 100, 50, "START GAME!"){ }
 
-		void perform(Button* source) {
-
-		}
-	};
-
-	class SettingsButton : public Button {
-	public:
-		SettingsButton() :Button(100, 200, 100, 50, "Settings") { }
-
-		void perform(Button* source) {
+	void perform(Button* source) {
+		ge.clearQueue();
+		SceneBattlefield* bf = new SceneBattlefield();
+		for (Sprite* s : bf->getSpriteList()) {
+			ge.add(s);
+			}
 
 		}
 	};
+
+
 
 
 
@@ -44,21 +61,28 @@ namespace fs19{
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		void tick() {};
 	private:
 		SDL_Texture* texture;
 
 
 	};
+	class TextEditor : public TextBox {
+	public:
+		TextEditor() :TextBox(200, 100, 100, 100) {}
+	};
+
 
 	SceneMenu::SceneMenu() {
 		
 		Sprite* background = new Background("fireStormBackground.jpg");
 		addSprites(background);
 		addSprites(new StartGameButton());
-		addSprites(new SettingsButton());
-
-
-
+		//addSprites(new SettingsButton());
+		addSprites(new PlayerLabel());
+		addSprites(new PlayerLabelTwo());
+		addSprites(new TextEditor());
+		
 	}
 
 }

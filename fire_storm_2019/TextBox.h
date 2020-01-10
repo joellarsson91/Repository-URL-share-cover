@@ -17,11 +17,11 @@ namespace fs19 {
 		void keyDown(const SDL_Event&) ;
 		void keyUp(const SDL_Event&) {};
 		void textInput(const SDL_Event&);
-		std::string getInputText() { return inputText; };
+		std::string getInputText() { return inputText; }
 	protected:
 		TextBox(int x, int y, int w, int h, std::string temp);
 	private:
-		std::string inputText;
+		std::string inputText, tempText;
 		bool renderText = false;
 		bool editingActive = false;
 		SDL_Texture* texture;

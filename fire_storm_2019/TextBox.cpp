@@ -12,6 +12,7 @@ namespace fs19 {
 	}
 	TextBox::TextBox(int x, int y, int w, int h, std::string temp) : Sprite(x, y, w, h) {
 		inputText = temp;
+		tempText = temp;
 		renderText = true;
 		SDL_DestroyTexture(texture);
 		SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), inputText.c_str(), { 0,0,0 });
@@ -76,7 +77,7 @@ namespace fs19 {
 	void TextBox::textInput(const SDL_Event& eve) {
 		if (!(SDL_GetModState() & KMOD_CTRL && (eve.text.text[0] == 'c' || eve.text.text[0] == 'C' || eve.text.text[0] == 'v' || eve.text.text[0] == 'V') ) && editingActive)
 		{
-			if (inputText == "some text")
+			if (inputText == tempText)
 				inputText.clear();
 			//Append character
 			inputText += eve.text.text;

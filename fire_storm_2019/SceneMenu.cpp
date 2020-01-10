@@ -5,7 +5,6 @@
 #include "Button.h"
 #include "System.h"
 #include "GameEngine.h"
-#include "Scene0.h"
 #include "Label.h"
 #include "SceneBattlefield.h"
 #include "TextBox.h"
@@ -20,7 +19,7 @@ namespace fs19{
 	class PlayerLabel : public Label {
 	public:
 
-		PlayerLabel() : Label(400, 400, 200, 50, "Player 1"){}
+		PlayerLabel() : Label(150, 250, 200, 50, "Player 1 name"){}
 
 	};
 
@@ -28,24 +27,12 @@ namespace fs19{
 	class PlayerLabelTwo : public Label {
 	public:
 
-		PlayerLabelTwo() : Label(200, 200, 200, 50, "Player 2") {}
+		PlayerLabelTwo() : Label(500, 250, 200, 50, "Player 2 name") {}
 
 	};
 
 
-	class StartGameButton : public Button {
-	public:
-	StartGameButton() :Button(300, 300, 100, 50, "START GAME!"){ }
 
-	void perform(Button* source) {
-		ge.clearQueue();
-		SceneBattlefield* bf = new SceneBattlefield();
-		for (Sprite* s : bf->getSpriteList()) {
-			ge.add(s);
-			}
-
-		}
-	};
 
 
 
@@ -67,22 +54,51 @@ namespace fs19{
 
 
 	};
-	class TextEditor : public TextBox {
+	class TextEditor1 : public TextBox {
 	public:
-		TextEditor() :TextBox(200, 100, 100, 100,"player 1") {}
+		TextEditor1() :TextBox(150, 300, 200, 75,"player 1") {}
+		void tick() {
+
+		}
+	};
+	
+	class TextEditor2 : public TextBox {
+	public:
+		TextEditor2() :TextBox(500, 300, 200, 75, "player 2") {}
+		void tick() {
+
+		}
 	};
 
 
+
+	class StartGameButton : public Button {
+	public:
+		StartGameButton() :Button(375, 500, 100, 50, "START GAME!") { }
+
+		void perform(Button* source) {
+			
+				ge.clearQueue();
+				SceneBattlefield* bf = new SceneBattlefield();
+				for (Sprite* s : bf->getSpriteList()) {
+					ge.add(s);
+				}
+			
+
+		}
+	};
+
 	SceneMenu::SceneMenu() {
 		
-		Sprite* background = new Background("fireStormBackground.jpg");
+		Sprite* background = new Background("battlefieldBackground.jpg");
 		addSprites(background);
 		addSprites(new StartGameButton());
 		//addSprites(new SettingsButton());
 		addSprites(new PlayerLabel());
 		addSprites(new PlayerLabelTwo());
-		addSprites(new TextEditor());
-		
+		addSprites(new TextEditor1());
+		addSprites(new TextEditor2());
+
 	}
 
 }

@@ -44,11 +44,33 @@ namespace fs19 {
 		}
 
 		void draw() const {
+
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		//Kanske måste definieras för att gå snabbare/långsammare
 		void tick() {
-			//Kanske måste definieras för att gå snabbare/långsammare
+			int xtemp = getRect().x;
+			int ytemp = getRect().y;
+
+			//Counter för att ökas för varje gång den studsar.
+
+			if (getRect().x <= 0 || getRect().x >= 800) {
+				ge.remove(this);
+			} else {
+			
+				if (getRect().x < xtemp + 10) {
+
+					setPosition(2, -1);
+
+				}
+				else if (getRect().x >= xtemp + 10 && getRect().y < ytemp) {
+
+					setPosition(2, 1);
+				} 
+				
+			
+			}
 		};
 
 		~Boulder() {
@@ -56,7 +78,7 @@ namespace fs19 {
 
 	private:
 		SDL_Texture* texture;
-
+		int counter = 0;
 	};
 
 	class Player1 : public PlayerSprite {
@@ -150,6 +172,12 @@ namespace fs19 {
 			}
 			else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
 				setPosition(3, 0);
+
+			}
+
+			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				ge.add(boulder);
 
 			}
 

@@ -16,8 +16,8 @@ namespace fs19 {
 
 	PlayerSprite::PlayerSprite(int x, int y, int w, int h, bool collision, std::string path) :Sprite(x,y,w,h,collision){
 
-		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult.png");
-		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft.png");
+		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult2.png");
+		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft2.png");
 		
 	}
 

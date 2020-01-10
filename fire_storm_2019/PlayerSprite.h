@@ -30,6 +30,7 @@ private:
 	bool isTurnedLeft = false;
 	SDL_Texture* pixelCatapult, * pixelCatapultLeft;
 	int xVel = 0, yVel = 0;
+	
 };
 }
 #endif

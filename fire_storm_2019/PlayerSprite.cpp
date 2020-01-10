@@ -27,11 +27,11 @@ namespace fs19 {
 		SDL_DestroyTexture(pixelCatapultLeft);
 	}
 
-	void PlayerSprite::tick() {
-		bool collision;
+	void PlayerSprite::calculateCollision() {
+		bool collision=true;
 		setCollider(false);
 		for (Sprite* s : ge.getEventQueue()) {
-			if(s->getCollider())
+			if (s->getCollider())
 				collision = checkCollision(getRect(), s->getRect());
 		}
 		if (!collision) {
@@ -42,6 +42,9 @@ namespace fs19 {
 		}
 		setCollider(true);
 	}
+	void PlayerSprite::tick() {	}
+
+	
 
 	void PlayerSprite::draw() const {
 

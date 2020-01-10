@@ -22,6 +22,7 @@ public:
 	void setYVel(int i) { yVel = i; }
 	int getXVel() { return xVel; }
 	int getYVel() { return yVel; }
+	void calculateCollision();
 
 protected:
 	PlayerSprite(int x, int y, int v, int h, bool collision, std::string path);

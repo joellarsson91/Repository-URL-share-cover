@@ -99,6 +99,7 @@ namespace fs19 {
 				counter = 0;
 				isReady = true;
 			}
+			calculateCollision();
 		}
 
 
@@ -122,11 +123,11 @@ namespace fs19 {
 				setXVel(3);
 
 			}
-			if (currentKeyStates[SDL_SCANCODE_F]) {
+			/*if (currentKeyStates[SDL_SCANCODE_F]) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
 				ge.add(boulder);
 
-			}
+			}*/
 		}
 		void keyUp(const SDL_Event& eve) {
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
@@ -179,6 +180,8 @@ namespace fs19 {
 				counter = 0;
 				isReady = true;
 			}
+			calculateCollision();
+
 		}
 
 		void keyDown(const SDL_Event& eve) {

@@ -81,7 +81,6 @@ namespace fs19{
 		Sprite* background = new Background("fireStormBackground.jpg");
 		addSprites(background);
 		addSprites(new StartGameButton());
-		//addSprites(new SettingsButton());
 		addSprites(new PlayerLabel());
 		addSprites(new PlayerLabelTwo());
 		addSprites(new TextEditor());

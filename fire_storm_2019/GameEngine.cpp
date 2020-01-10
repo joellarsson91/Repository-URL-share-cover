@@ -132,9 +132,15 @@ namespace fs19 {
 
 	GameEngine::~GameEngine()
 	{
-		eventQueue.clear();
-		added.clear();
-		removed.clear();
+		for (Sprite* s : eventQueue) {
+			delete[] s;
+		}
+		for (Sprite* s : added) {
+			delete[] s;
+		}
+		for (Sprite* s : removed) {
+			delete[] s;
+		}
 	}
 
 	GameEngine ge;

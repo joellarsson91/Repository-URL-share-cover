@@ -3,16 +3,18 @@
 #include <SDL_image.h>
 #include "System.h"
 #include "SceneBattlefield.h"
+#include "GameEngine.h"
+#include <iostream>
 
 namespace fs19 {
 
-	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, std::string path){
-		return new PlayerSprite(x, y, w, h, path);
+	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, bool collision, std::string path){
+		return new PlayerSprite(x, y, w, h,collision, path);
 		
 	
 	}
 
-	PlayerSprite::PlayerSprite(int x, int y, int w, int h, std::string path) :Sprite(x,y,w,h){
+	PlayerSprite::PlayerSprite(int x, int y, int w, int h, bool collision, std::string path) :Sprite(x,y,w,h,collision){
 
 		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult2.png");
 		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft2.png");
@@ -25,9 +27,24 @@ namespace fs19 {
 		SDL_DestroyTexture(pixelCatapultLeft);
 	}
 
-	void PlayerSprite::tick() {
-		setPosition(xVel, yVel);
+	void PlayerSprite::calculateCollision() {
+		bool collision=true;
+		setCollider(false);
+		for (Sprite* s : ge.getEventQueue()) {
+			if (s->getCollider())
+				collision = checkCollision(getRect(), s->getRect());
+		}
+		if (!collision) {
+			setPosition(xVel, yVel);
+		}
+		else {
+			setPosition(-xVel, -yVel);
+		}
+		setCollider(true);
 	}
+	void PlayerSprite::tick() {	}
+
+	
 
 	void PlayerSprite::draw() const {
 

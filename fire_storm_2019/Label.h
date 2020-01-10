@@ -9,7 +9,7 @@ namespace fs19 {
 	class Label : public Sprite
 	{
 	public:
-		static Label* getInstance(int x, int y, int w, int h, std::string txt);
+		static Label* getInstance(int x, int y, int w, int h, bool collision, std::string txt);
 		//label måste ha draw från component
 		void draw() const;
 		void tick() {};
@@ -19,7 +19,7 @@ namespace fs19 {
 
 	protected:
 		//så man inte kan skapa objekt av detta
-		Label(int x, int y, int v, int h, std::string txt);
+		Label(int x, int y, int v, int h, bool collision, std::string txt);
 
 	private:
 		std::string text;

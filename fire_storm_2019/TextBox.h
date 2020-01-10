@@ -8,7 +8,7 @@ namespace fs19 {
 	class TextBox : public Sprite
 	{
 	public:
-		static TextBox* getInstance(int x, int y, int w, int h);
+		static TextBox* getInstance(int x, int y, int w, int h, bool collision);
 		~TextBox();
 		void tick() {}; //An incremential tick that updates the game with each tick at end of the loop
 		void draw() const ; //draws the components
@@ -19,7 +19,7 @@ namespace fs19 {
 		void textInput(const SDL_Event&);
 		std::string getInputText() { return inputText; };
 	protected:
-		TextBox(int x, int y, int w, int h);
+		TextBox(int x, int y, int w, int h, bool collision);
 	private:
 		std::string inputText;
 		bool renderText = false;

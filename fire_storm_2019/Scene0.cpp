@@ -22,7 +22,7 @@ namespace fs19 {
 
 	class NewGameButton : public Button {
 	public:
-		NewGameButton() :Button(100, 100, 100, 50, "New Game") {}
+		NewGameButton() :Button(100, 100, 100, 50,false, "New Game") {}
 
 
 		void perform(Button* source) {
@@ -38,7 +38,7 @@ namespace fs19 {
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600, false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
@@ -54,7 +54,7 @@ namespace fs19 {
 
 	class walkAnimation : public AnimationSprite {
 	public:
-		walkAnimation(): AnimationSprite(400,400,95,161,"Walkanimation.png",7,3){}
+		walkAnimation(): AnimationSprite(400,400,95,161,false,"Walkanimation.png",7,3){}
 
 	};
 	
@@ -62,7 +62,7 @@ namespace fs19 {
 	
 	class runAnimation : public AnimationSprite {
 	public:
-		runAnimation() : AnimationSprite(700, 400, 125, 125, "Runanimation.png", 4, 4) {}
+		runAnimation() : AnimationSprite(300, 200, 125, 125,false, "Runanimation.png", 4, 4) {}
 	};
 
 

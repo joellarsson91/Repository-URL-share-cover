@@ -132,6 +132,9 @@ namespace fs19 {
 
 	GameEngine::~GameEngine()
 	{
+		eventQueue.clear();
+		added.clear();
+		removed.clear();
 	}
 
 	GameEngine ge;

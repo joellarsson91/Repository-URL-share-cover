@@ -16,9 +16,6 @@ namespace fs19 {
 
 	}
 
-	void Scene0::populateSpriteList() {
-		
-	}
 
 	class NewGameButton : public Button {
 	public:
@@ -46,6 +43,9 @@ namespace fs19 {
 
 		}
 		void tick() {};
+		~Background() {
+			SDL_DestroyTexture(texture);
+		}
 	private:
 		SDL_Texture* texture;
 

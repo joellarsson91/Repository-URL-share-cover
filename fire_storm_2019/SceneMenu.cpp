@@ -61,6 +61,9 @@ namespace fs19{
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		~Background() {
+			SDL_DestroyTexture(texture);
+		}
 		void tick() {};
 	private:
 		SDL_Texture* texture;

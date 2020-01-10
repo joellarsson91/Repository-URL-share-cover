@@ -26,6 +26,9 @@ namespace fs19 {
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		~Background() {
+			SDL_DestroyTexture(texture);
+		}
 		void tick() {};
 	private:
 		SDL_Texture* texture;
@@ -41,6 +44,9 @@ namespace fs19 {
 
 		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40, true) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
+		}
+		~Boulder() {
+			SDL_DestroyTexture(texture);
 		}
 
 		void draw() const {
@@ -76,8 +82,6 @@ namespace fs19 {
 
 
 
-		~Boulder() {
-		};
 
 	private:
 		SDL_Texture* texture;
@@ -123,11 +127,7 @@ namespace fs19 {
 				setXVel(3);
 
 			}
-			/*if (currentKeyStates[SDL_SCANCODE_F]) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
-				ge.add(boulder);
 
-			}*/
 		}
 		void keyUp(const SDL_Event& eve) {
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);

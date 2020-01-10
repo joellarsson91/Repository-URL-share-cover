@@ -10,17 +10,14 @@ namespace fs19 {
         SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         SDL_FreeSurface(surf);
-        upIcon = IMG_LoadTexture(sys.get_ren(), "c:/users/joel_/OneDrive/Bilder/BorderPng.png");//Hitta ny bakgrund
-        //för button down and up
-        downIcon = IMG_LoadTexture(sys.get_ren(), "c:/users/joel_/OneDrive/Bilder/BorderPngRed.png");
+      
 
     }
 
     Button::~Button() {
-        //3 textures som måste städas bort
+
         SDL_DestroyTexture(texture);
-        SDL_DestroyTexture(upIcon);
-        SDL_DestroyTexture(downIcon);
+       
     }
 
     Button* Button::getInstance(int x, int y, int w, int h, bool collision, std::string txt) {
@@ -44,12 +41,6 @@ namespace fs19 {
 
     }
     void Button::draw() const {
-        //måste veta om knappen är nedtryckt eller ej.
-        if (isDown)
-            SDL_RenderCopy(sys.get_ren(), downIcon, NULL, &getRect());
-        else
-            SDL_RenderCopy(sys.get_ren(), upIcon, NULL, &getRect());
-
         SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
     }
 

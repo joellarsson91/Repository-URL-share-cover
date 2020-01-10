@@ -21,7 +21,6 @@ protected:
 private:
 	std::string text;
 	SDL_Texture* texture;
-	SDL_Texture* upIcon, * downIcon;
 	bool isDown = false;
 
 

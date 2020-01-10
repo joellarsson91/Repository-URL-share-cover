@@ -10,7 +10,7 @@ namespace fs19 {
 
 
 	Scene::~Scene() {
-
+		spriteList.clear();
 	}
 
 	void Scene::addSprites(Sprite* s) {

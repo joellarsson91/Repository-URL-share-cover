@@ -162,8 +162,10 @@ namespace fs19 {
 			}
 		}
 	private:
+		//cd
 		bool isReady = true;
 		int counter = 0;
+		
 	};
 
 

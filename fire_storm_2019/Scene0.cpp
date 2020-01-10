@@ -62,7 +62,7 @@ namespace fs19 {
 	
 	class runAnimation : public AnimationSprite {
 	public:
-		runAnimation() : AnimationSprite(300, 200, 125, 125, "Runanimation.png", 4, 4) {}
+		runAnimation() : AnimationSprite(700, 400, 125, 125, "Runanimation.png", 4, 4) {}
 	};
 
 

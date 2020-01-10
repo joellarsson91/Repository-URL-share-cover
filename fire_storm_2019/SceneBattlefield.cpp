@@ -160,7 +160,16 @@ namespace fs19 {
 	public:
 		Player2() : PlayerSprite(700, 300, 50, 25, "pixelCatapult2.png") {}
 
-
+		void tick() {
+			if (counter > 0 && counter < 150) {
+				counter++;
+				isReady = false;
+			}
+			else {
+				counter = 0;
+				isReady = true;
+			}
+		}
 
 		void keyDown(const SDL_Event& eve) {
 
@@ -198,12 +207,19 @@ namespace fs19 {
 			}
 
 			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
+				if (isReady) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
 				ge.add(boulder);
+				counter++;
 
+			}
 			}
 
 		}
+
+	private:
+		bool isReady = true;
+		int counter = 0;
 
 	};
 

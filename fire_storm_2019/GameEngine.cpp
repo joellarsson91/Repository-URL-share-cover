@@ -133,13 +133,13 @@ namespace fs19 {
 	GameEngine::~GameEngine()
 	{
 		for (Sprite* s : eventQueue) {
-			delete[] s;
+			delete s;
 		}
 		for (Sprite* s : added) {
-			delete[] s;
+			delete s;
 		}
 		for (Sprite* s : removed) {
-			delete[] s;
+			delete s;
 		}
 	}
 

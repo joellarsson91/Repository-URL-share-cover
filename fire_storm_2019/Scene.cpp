@@ -11,7 +11,7 @@ namespace fs19 {
 
 	Scene::~Scene() {
 		for (Sprite* s : spriteList) {
-			delete[] s;
+			delete s;
 		}
 	}
 

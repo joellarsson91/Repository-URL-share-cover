@@ -19,7 +19,7 @@ namespace fs19 {
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
@@ -39,7 +39,7 @@ namespace fs19 {
 			return new Boulder(x, y, path);
 		}
 
-		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40) {
+		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40,true) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
 		}
 
@@ -63,7 +63,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 100, 50, "pixelCatapult.png") {}
+		Player1() : PlayerSprite(0, 300, 100, 50,true, "pixelCatapult.png") {}
 
 
 
@@ -123,7 +123,7 @@ namespace fs19 {
 
 	class Player2 : public PlayerSprite {
 	public:
-		Player2() : PlayerSprite(700, 300, 100, 50, "pixelCatapult.png") {}
+		Player2() : PlayerSprite(700, 300, 100, 50,true, "pixelCatapult.png") {}
 
 
 

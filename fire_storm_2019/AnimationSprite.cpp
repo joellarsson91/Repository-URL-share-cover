@@ -5,14 +5,14 @@
 
 namespace fs19 {
 
-	AnimationSprite::AnimationSprite(int x, int y, int w, int h, std::string path, int xFrames, int yFrames) : Sprite(x, y, w, h) {
+	AnimationSprite::AnimationSprite(int x, int y, int w, int h, bool collision, std::string path, int xFrames, int yFrames) : Sprite(x, y, w, h,collision) {
 		xFrameCount = xFrames;
 		yFrameCount = yFrames;
 		animationSheet = IMG_LoadTexture(sys.get_ren(), path.c_str());
 		frameClip = {0,0,w,h};
 	}
-	AnimationSprite* AnimationSprite::getInstance(int x, int y, int w, int h, std::string path,int xFrames, int yFrames) {
-		return new AnimationSprite( x, y, w, h, path, xFrames, yFrames);
+	AnimationSprite* AnimationSprite::getInstance(int x, int y, int w, int h, bool collision, std::string path,int xFrames, int yFrames) {
+		return new AnimationSprite( x, y, w, h,collision, path, xFrames, yFrames);
 	}
 	AnimationSprite::~AnimationSprite() {
 		SDL_DestroyTexture(animationSheet);

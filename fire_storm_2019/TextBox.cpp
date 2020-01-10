@@ -10,7 +10,7 @@ namespace fs19 {
 		SDL_DestroyTexture(texture);
 
 	}
-	TextBox::TextBox(int x, int y, int w, int h) : Sprite(x, y, w, h) {
+	TextBox::TextBox(int x, int y, int w, int h, bool collision) : Sprite(x, y, w, h,collision) {
 		inputText = "some text";
 		renderText = true;
 		SDL_DestroyTexture(texture);
@@ -20,8 +20,8 @@ namespace fs19 {
 
 	}
 
-	TextBox* TextBox::getInstance(int x, int y, int w, int h) {
-		return new TextBox(x, y, w, h);
+	TextBox* TextBox::getInstance(int x, int y, int w, int h, bool collision) {
+		return new TextBox(x, y, w, h,collision);
 
 
 	}

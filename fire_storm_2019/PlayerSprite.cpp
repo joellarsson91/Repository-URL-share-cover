@@ -6,13 +6,13 @@
 
 namespace fs19 {
 
-	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, std::string path){
-		return new PlayerSprite(x, y, w, h, path);
+	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, bool collision, std::string path){
+		return new PlayerSprite(x, y, w, h,collision, path);
 		
 	
 	}
 
-	PlayerSprite::PlayerSprite(int x, int y, int w, int h, std::string path) :Sprite(x,y,w,h){
+	PlayerSprite::PlayerSprite(int x, int y, int w, int h, bool collision, std::string path) :Sprite(x,y,w,h,collision){
 
 		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult.png");
 		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft.png");
@@ -26,6 +26,7 @@ namespace fs19 {
 	}
 
 	void PlayerSprite::tick() {
+
 		setPosition(xVel, yVel);
 	}
 

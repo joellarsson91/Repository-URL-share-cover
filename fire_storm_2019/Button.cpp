@@ -6,7 +6,7 @@
 
 
 namespace fs19 {    
-    Button::Button(int x, int y, int w, int h, std::string txt) :Sprite(x, y, w, h) {
+    Button::Button(int x, int y, int w, int h, bool collision, std::string txt) :Sprite(x, y, w, h,collision) {
         SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         SDL_FreeSurface(surf);
@@ -23,8 +23,8 @@ namespace fs19 {
         SDL_DestroyTexture(downIcon);
     }
 
-    Button* Button::getInstance(int x, int y, int w, int h, std::string txt) {
-        return new Button(x, y, w, h, txt);
+    Button* Button::getInstance(int x, int y, int w, int h, bool collision, std::string txt) {
+        return new Button(x, y, w, h,collision, txt);
     }
     void Button::mouseDown(const SDL_Event& eve) {
         //Ska man se om knappen är över komponentarean

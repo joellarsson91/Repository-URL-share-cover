@@ -20,7 +20,7 @@ namespace fs19{
 	class PlayerLabel : public Label {
 	public:
 
-		PlayerLabel() : Label(400, 400, 200, 50, "Player 1"){}
+		PlayerLabel() : Label(400, 400, 200, 50,false, "Player 1"){}
 
 	};
 
@@ -28,14 +28,14 @@ namespace fs19{
 	class PlayerLabelTwo : public Label {
 	public:
 
-		PlayerLabelTwo() : Label(200, 200, 200, 50, "Player 2") {}
+		PlayerLabelTwo() : Label(200, 200, 200, 50,false, "Player 2") {}
 
 	};
 
 
 	class StartGameButton : public Button {
 	public:
-	StartGameButton() :Button(300, 300, 100, 50, "START GAME!"){ }
+	StartGameButton() :Button(300, 300, 100, 50,false, "START GAME!"){ }
 
 	void perform(Button* source) {
 		ge.clearQueue();
@@ -54,7 +54,7 @@ namespace fs19{
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
@@ -69,7 +69,7 @@ namespace fs19{
 	};
 	class TextEditor : public TextBox {
 	public:
-		TextEditor() :TextBox(200, 100, 100, 100) {}
+		TextEditor() :TextBox(200, 100, 100, 100,false) {}
 	};
 
 

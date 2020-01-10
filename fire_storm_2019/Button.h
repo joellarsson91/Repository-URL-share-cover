@@ -7,7 +7,7 @@ namespace fs19{
 class Button : public Sprite
 {
 public:
-	static Button* getInstance(int x, int y, int w, int h, std::string txt);
+	static Button* getInstance(int x, int y, int w, int h, bool collision, std::string txt);
 	void mouseDown(const SDL_Event&);
 	void mouseUp(const SDL_Event&);
 	void draw() const;
@@ -15,7 +15,7 @@ public:
 	virtual void perform(Button* source) {}
 	~Button();
 protected:
-	Button(int x, int y, int w, int h, std::string txt);
+	Button(int x, int y, int w, int h, bool collision, std::string txt);
 
 
 private:

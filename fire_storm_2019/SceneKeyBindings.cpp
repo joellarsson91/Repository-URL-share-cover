@@ -10,7 +10,7 @@ namespace fs19 {
 	public:
 		//took this from SceneMenu.cpp
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 
 		}

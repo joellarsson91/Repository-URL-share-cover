@@ -19,7 +19,7 @@ namespace fs19 {
 
 	class KeyBindingsButton : public Button {
 	public:
-		KeyBindingsButton() :Button(100, 100, 100, 50, "Keybindings") {}
+		KeyBindingsButton() :Button(100, 100, 100, 50,false, "Keybindings") {}
 
 		void perform(Button* source) {
 
@@ -31,7 +31,7 @@ namespace fs19 {
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {

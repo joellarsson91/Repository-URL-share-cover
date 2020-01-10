@@ -30,6 +30,9 @@ namespace fs19 {
 	TTF_Font* System::get_font() const {
 		return font;
 	}
+	SDL_Window* System::get_win() const {
+		return win;
+	}
 
 
 	System sys;

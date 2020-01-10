@@ -81,69 +81,7 @@ namespace fs19 {
 
 			} //Poll_Event While
 
-			
-			//const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-
-
-			//if (currentKeyStates[SDL_SCANCODE_W]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-			//else if (currentKeyStates[SDL_SCANCODE_S]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_D]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_A]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_UP]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-			//else if (currentKeyStates[SDL_SCANCODE_DOWN]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_LEFT]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//if (currentKeyStates[SDL_MOUSEBUTTONUP]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->mouseUp(eve);
-			//	}
-			//}
-			//else if (currentKeyStates[SDL_MOUSEBUTTONDOWN]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->mouseDown(eve);
-			//	}
-			//}
-
-
+		
 			//Tick
 			for (Sprite* s : eventQueue) {
 				s->tick();

@@ -3,6 +3,8 @@
 #include <SDL_image.h>
 #include "System.h"
 #include "SceneBattlefield.h"
+#include "GameEngine.h"
+#include <iostream>
 
 namespace fs19 {
 
@@ -26,8 +28,19 @@ namespace fs19 {
 	}
 
 	void PlayerSprite::tick() {
-
-		setPosition(xVel, yVel);
+		bool collision;
+		setCollider(false);
+		for (Sprite* s : ge.getEventQueue()) {
+			if(s->getCollider())
+				collision = checkCollision(getRect(), s->getRect());
+		}
+		if (!collision) {
+			setPosition(xVel, yVel);
+		}
+		else {
+			setPosition(-xVel, -yVel);
+		}
+		setCollider(true);
 	}
 
 	void PlayerSprite::draw() const {

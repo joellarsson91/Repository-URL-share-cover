@@ -14,6 +14,8 @@ namespace fs19 {
 		virtual void keyDown(const SDL_Event&) {};
 		virtual void keyUp(const SDL_Event&) {};
 		virtual void textInput(const SDL_Event&) {};
+		bool getCollider() { return collider; }
+		void setCollider(bool b) { collider = b; }
 		bool checkCollision(SDL_Rect a, SDL_Rect b);
 		const SDL_Rect& getRect() const { return rect; } // Each Sprite holds a rectangel where its drawn up upon
 														//which coordinates

@@ -8,7 +8,6 @@
 
 namespace fs19 {
 
-	SceneBattlefield sb;
 
 	SceneBattlefield::~SceneBattlefield() {
 
@@ -36,20 +35,42 @@ namespace fs19 {
 
 	class Boulder : public Sprite {
 	public:
-		static Boulder* getInstance(int x, int y) {
-			return new Boulder(x, y);
+		static Boulder* getInstance(int x, int y, std::string path) {
+			return new Boulder(x, y, path);
 		}
 
-		Boulder(int x, int y) : Sprite(x, y, 100, 100) {
+		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
 		}
 
 		void draw() const {
+
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
 		}
+		//Kanske måste definieras för att gå snabbare/långsammare
 		void tick() {
-			//Kanske måste definieras för att gå snabbare/långsammare
+			int xtemp = getRect().x;
+			int ytemp = getRect().y;
+
+			//Counter för att ökas för varje gång den studsar.
+
+			if (getRect().x <= 0 || getRect().x >= 800) {
+				ge.remove(this);
+			} else {
+			
+				if (getRect().x < xtemp + 10) {
+
+					setPosition(2, -1);
+
+				}
+				else if (getRect().x >= xtemp + 10 && getRect().y < ytemp) {
+
+					setPosition(2, 1);
+				} 
+				
+			
+			}
 		};
 
 		~Boulder() {
@@ -57,7 +78,7 @@ namespace fs19 {
 
 	private:
 		SDL_Texture* texture;
-
+		int counter = 0;
 	};
 
 	class Player1 : public PlayerSprite {
@@ -99,6 +120,12 @@ namespace fs19 {
 			}
 			else if (currentKeyStates[SDL_SCANCODE_D]) {
 				setPosition(3, 0);
+
+			}
+			
+			if (currentKeyStates[SDL_SCANCODE_F]) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				ge.add(boulder);
 
 			}
 		}
@@ -148,11 +175,12 @@ namespace fs19 {
 
 			}
 
-			if (eve.key.keysym.sym == SDLK_f) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y);
-				sb.addSprites(boulder);
-				
+			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				ge.add(boulder);
+
 			}
+
 		}
 
 	};

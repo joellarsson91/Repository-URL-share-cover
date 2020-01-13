@@ -5,6 +5,7 @@
 #include "Button.h"
 #include "System.h"
 #include "GameEngine.h"
+#include "Scene0.h"
 #include "Label.h"
 #include "SceneBattlefield.h"
 #include "TextBox.h"
@@ -19,7 +20,7 @@ namespace fs19{
 	class PlayerLabel : public Label {
 	public:
 
-		PlayerLabel() : Label(150, 250, 200, 50, "Player 1 name"){}
+		PlayerLabel() : Label(400, 400, 200, 50,false, "Player 1"){}
 
 	};
 
@@ -27,12 +28,24 @@ namespace fs19{
 	class PlayerLabelTwo : public Label {
 	public:
 
-		PlayerLabelTwo() : Label(500, 250, 200, 50, "Player 2 name") {}
+		PlayerLabelTwo() : Label(200, 200, 200, 50,false, "Player 2") {}
 
 	};
 
 
+	class StartGameButton : public Button {
+	public:
+	StartGameButton() :Button(300, 300, 100, 50,false, "START GAME!"){ }
 
+	void perform(Button* source) {
+		ge.clearQueue();
+		SceneBattlefield* bf = new SceneBattlefield();
+		for (Sprite* s : bf->getSpriteList()) {
+			ge.add(s);
+			}
+
+		}
+	};
 
 
 
@@ -41,12 +54,15 @@ namespace fs19{
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
 			SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 
+		}
+		~Background() {
+			SDL_DestroyTexture(texture);
 		}
 		void tick() {};
 	private:
@@ -54,51 +70,21 @@ namespace fs19{
 
 
 	};
-	class TextEditor1 : public TextBox {
+	class TextEditor : public TextBox {
 	public:
-		TextEditor1() :TextBox(150, 300, 200, 75,"player 1") {}
-		void tick() {
-
-		}
-	};
-	
-	class TextEditor2 : public TextBox {
-	public:
-		TextEditor2() :TextBox(500, 300, 200, 75, "player 2") {}
-		void tick() {
-
-		}
+		TextEditor() :TextBox(200, 100, 200, 50,false, "text editor") {}
 	};
 
-
-
-	class StartGameButton : public Button {
-	public:
-		StartGameButton() :Button(375, 500, 100, 50, "START GAME!") { }
-
-		void perform(Button* source) {
-			
-				ge.clearQueue();
-				SceneBattlefield* bf = new SceneBattlefield();
-				for (Sprite* s : bf->getSpriteList()) {
-					ge.add(s);
-				}
-			
-
-		}
-	};
 
 	SceneMenu::SceneMenu() {
 		
-		Sprite* background = new Background("battlefieldBackground.jpg");
+		Sprite* background = new Background("fireStormBackground.jpg");
 		addSprites(background);
 		addSprites(new StartGameButton());
-		//addSprites(new SettingsButton());
 		addSprites(new PlayerLabel());
 		addSprites(new PlayerLabelTwo());
-		addSprites(new TextEditor1());
-		addSprites(new TextEditor2());
-
+		addSprites(new TextEditor());
+		
 	}
 
 }

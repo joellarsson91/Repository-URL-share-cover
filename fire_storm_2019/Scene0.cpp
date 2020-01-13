@@ -16,13 +16,10 @@ namespace fs19 {
 
 	}
 
-	void Scene0::populateSpriteList() {
-		
-	}
 
 	class NewGameButton : public Button {
 	public:
-		NewGameButton() :Button(100, 100, 100, 50, "New Game") {}
+		NewGameButton() :Button(100, 100, 100, 50,false, "New Game") {}
 
 
 		void perform(Button* source) {
@@ -38,7 +35,7 @@ namespace fs19 {
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600) {
+		Background(std::string s) :Sprite(0, 0, 800, 600, false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
@@ -46,6 +43,9 @@ namespace fs19 {
 
 		}
 		void tick() {};
+		~Background() {
+			SDL_DestroyTexture(texture);
+		}
 	private:
 		SDL_Texture* texture;
 
@@ -54,7 +54,7 @@ namespace fs19 {
 
 	class walkAnimation : public AnimationSprite {
 	public:
-		walkAnimation(): AnimationSprite(400,400,95,161,"Walkanimation.png",7,3){}
+		walkAnimation(): AnimationSprite(400,400,95,161,false,"Walkanimation.png",7,3){}
 
 	};
 	
@@ -62,10 +62,13 @@ namespace fs19 {
 	
 	class runAnimation : public AnimationSprite {
 	public:
-		runAnimation() : AnimationSprite(300, 200, 125, 125, "Runanimation.png", 4, 4) {}
+		runAnimation() : AnimationSprite(300, 200, 128, 128,false, "fireAnim.png", 8, 8) {}
 	};
 
-
+	class FireAnimation : public AnimationSprite {
+	public:
+		FireAnimation() : AnimationSprite(500, 200, 128, 128, false, "fireAnim.png", 8, 8) {}
+	};
 
 
 	//Moved constructor down so the encapsulated classes
@@ -79,8 +82,9 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		addSprites(new walkAnimation());
+		//addSprites(new walkAnimation());
 		addSprites(new runAnimation());
+		
 
 
 	}

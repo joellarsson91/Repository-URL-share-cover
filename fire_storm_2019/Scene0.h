@@ -14,7 +14,7 @@ public:
 	~Scene0();
 
 
-	void populateSpriteList();
+
 
 
 private:

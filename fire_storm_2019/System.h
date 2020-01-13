@@ -11,6 +11,7 @@ namespace fs19 {
 		~System();
 		SDL_Renderer* get_ren() const;
 		TTF_Font* get_font() const;
+		SDL_Window* get_win() const;
 
 
 	private:

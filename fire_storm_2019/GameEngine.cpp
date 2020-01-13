@@ -14,7 +14,7 @@ namespace fs19 {
 	}
 
 	void GameEngine::remove(Sprite* s) {
-		//eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);
+		delete s;
 		removed.push_back(s);
 	}
 
@@ -40,7 +40,10 @@ namespace fs19 {
 
 			while (SDL_PollEvent(&eve)) {
 				//User requests quit
-
+				if (eve.type == SDL_QUIT)
+				{
+					quit = true;
+				}
 				switch (eve.type) {
 				case SDL_QUIT: quit = true; break;
 				case SDL_MOUSEBUTTONDOWN:
@@ -68,85 +71,17 @@ namespace fs19 {
 						s->textInput(eve);
 					}
 					break;
+
+				case SDLK_SPACE:
+					for (Sprite* s : eventQueue) {
+						s->keyDown(eve);
+					}
 				}
+
+
 			} //Poll_Event While
 
-			
-			/*const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-
-			if (currentKeyStates[SDL_SCANCODE_UP]&& currentKeyStates[SDL_SCANCODE_LEFT]) {
-				std::cout << "1";
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-			else if (currentKeyStates[SDL_SCANCODE_UP] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				std::cout << "2";
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_LEFT]) {
-				std::cout << "3";
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-			else if (currentKeyStates[SDL_SCANCODE_DOWN] && currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				std::cout << "4";
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}*/
-			/*if (currentKeyStates[SDL_SCANCODE_UP]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-
-			if (currentKeyStates[SDL_SCANCODE_DOWN]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-
-			if (currentKeyStates[SDL_SCANCODE_LEFT]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}
-
-			if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
-				for (Sprite* s : eventQueue) {
-					s->keyDown(eve);
-				}
-			}*/
-
-
-
-			//if (currentKeyStates[SDL_SCANCODE_W]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-			//else if (currentKeyStates[SDL_SCANCODE_S]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//		
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_D]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
-
-			//else if (currentKeyStates[SDL_SCANCODE_A]) {
-			//	for (Sprite* s : eventQueue) {
-			//		s->keyDown(eve);
-			//	}
-			//}
+		
 			//Tick
 			for (Sprite* s : eventQueue) {
 				s->tick();
@@ -159,7 +94,7 @@ namespace fs19 {
 			added.clear();
 
 			//går igenom removed och tar bort från eventQueue
-			for (Sprite* s : removed)
+			for (Sprite* s : removed) 
 				for (std::vector<Sprite*>::iterator i = eventQueue.begin();
 					i != eventQueue.end();)
 					if (*i == s) {
@@ -168,6 +103,8 @@ namespace fs19 {
 					}
 					else
 						i++;
+
+			
 			removed.clear();
 			
 
@@ -197,6 +134,15 @@ namespace fs19 {
 
 	GameEngine::~GameEngine()
 	{
+		for (Sprite* s : eventQueue) {
+			delete s;
+		}
+		for (Sprite* s : added) {
+			delete s;
+		}
+		for (Sprite* s : removed) {
+			delete s;
+		}
 	}
 
 	GameEngine ge;

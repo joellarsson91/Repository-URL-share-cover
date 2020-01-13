@@ -3,7 +3,6 @@
 namespace fs19 {
 
 
-
 	Scene::Scene()  {
 
 	}
@@ -11,7 +10,9 @@ namespace fs19 {
 
 
 	Scene::~Scene() {
-
+		for (Sprite* s : spriteList) {
+			delete s;
+		}
 	}
 
 	void Scene::addSprites(Sprite* s) {

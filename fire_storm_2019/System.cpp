@@ -9,7 +9,7 @@ namespace fs19 {
 		win = SDL_CreateWindow("FIRE STORM", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
 		ren = SDL_CreateRenderer(win, -1, 0);
 		TTF_Init();
-		font = TTF_OpenFont("c:/Windows/Fonts/arial.ttf", 36);
+		font = TTF_OpenFont("c:/Windows/Fonts/arial.ttf", 20);
 		
 		
 		
@@ -29,6 +29,9 @@ namespace fs19 {
 	}
 	TTF_Font* System::get_font() const {
 		return font;
+	}
+	SDL_Window* System::get_win() const {
+		return win;
 	}
 
 

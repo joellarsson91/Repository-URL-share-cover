@@ -42,12 +42,6 @@
     <ClCompile Include="SceneMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneKeyBindings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneSettings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,12 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneKeyBindings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneBattlefield.h">

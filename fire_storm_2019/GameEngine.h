@@ -12,6 +12,7 @@ namespace fs19 {
 		void remove(Sprite* s);
 		void add(Sprite* s);
 		void run();
+		const std::vector<Sprite*> getEventQueue() const { return eventQueue; }
 		int size();
 		~GameEngine();
 	private:

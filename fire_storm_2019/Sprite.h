@@ -14,18 +14,23 @@ namespace fs19 {
 		virtual void keyDown(const SDL_Event&) {};
 		virtual void keyUp(const SDL_Event&) {};
 		virtual void textInput(const SDL_Event&) {};
+		bool getCollider() { return collider; }
+		void setCollider(bool b) { collider = b; }
+		bool checkCollision(SDL_Rect a, SDL_Rect b);
 		const SDL_Rect& getRect() const { return rect; } // Each Sprite holds a rectangel where its drawn up upon
 														//which coordinates
 		void setPosition(int dx, int dy) { rect.x += dx; rect.y += dy; }
+		
 	protected:
 		//Protects Sprite for being created as an object since its a templateclass
-		Sprite(int x, int y, int w, int h);
+		Sprite(int x, int y, int w, int h, bool collision);
 
 	private:
 		SDL_Rect rect;
 		//Removes possabilities of allocate and copy Sprites
 		Sprite(const Sprite&) = delete;
 		const Sprite& operator=(const Sprite&) = delete;
+		bool collider;
 	};
 }
 #endif

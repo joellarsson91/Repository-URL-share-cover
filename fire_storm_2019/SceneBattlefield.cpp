@@ -19,7 +19,7 @@ namespace fs19 {
 	class Background : public Sprite {
 	public:
 		//remove hardcoded size later
-		Background(std::string s) :Sprite(0, 0, 800, 600,false) {
+		Background(std::string s) :Sprite(0, 0, 800, 600, false) {
 			texture = IMG_LoadTexture(sys.get_ren(), s.c_str());
 		}
 		void draw() const {
@@ -81,6 +81,9 @@ namespace fs19 {
 							setPosition(-5, 3);
 
 						}
+						else {
+							ge.remove(this);
+						}
 					}
 					else {
 						if (getRect().x < xtemp + 300) {
@@ -93,6 +96,9 @@ namespace fs19 {
 
 							setPosition(5, 3);
 
+						}
+						else {
+							ge.remove(this);
 						}
 					}
 
@@ -113,7 +119,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 50, 25, true, "pixelCatapult2.png","pixelCatapultLeft2.png") {}
+		Player1() : PlayerSprite(1, 300, 50, 25, true, "pixelCatapult2.png","pixelCatapultLeft2.png") {}
 
 		void tick() {
 			if (counter>0 && counter<150) {
@@ -137,7 +143,7 @@ namespace fs19 {
 		void perform() {
 
 			setPosition(-xTemp, -yTemp);;
-			std::cout << getCollider();
+			
 		}
 
 
@@ -193,15 +199,6 @@ namespace fs19 {
 					setXVel(0);
 
 			}
-
-			/*if (currentKeyStates[SDL_SCANCODE_F]) {
-				if (isReady) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
-				ge.add(boulder);
-				counter++;
-				
-				}
-			}*/
 		}
 	private:
 		//cd

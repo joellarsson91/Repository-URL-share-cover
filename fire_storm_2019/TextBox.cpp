@@ -10,8 +10,9 @@ namespace fs19 {
 		SDL_DestroyTexture(texture);
 
 	}
-	TextBox::TextBox(int x, int y, int w, int h, bool collision) : Sprite(x, y, w, h,collision) {
-		inputText = "some text";
+	TextBox::TextBox(int x, int y, int w, int h, bool collision, std::string temp) : Sprite(x, y, w, h, collision) {
+		inputText = temp;
+		tempText = temp;
 		renderText = true;
 		SDL_DestroyTexture(texture);
 		SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), inputText.c_str(), { 0,0,0 });
@@ -20,8 +21,8 @@ namespace fs19 {
 
 	}
 
-	TextBox* TextBox::getInstance(int x, int y, int w, int h, bool collision) {
-		return new TextBox(x, y, w, h,collision);
+	TextBox* TextBox::getInstance(int x, int y, int w, int h,bool collision, std::string temp) {
+		return new TextBox(x, y, w, h, collision, temp);
 
 
 	}
@@ -76,16 +77,17 @@ namespace fs19 {
 	void TextBox::textInput(const SDL_Event& eve) {
 		if (!(SDL_GetModState() & KMOD_CTRL && (eve.text.text[0] == 'c' || eve.text.text[0] == 'C' || eve.text.text[0] == 'v' || eve.text.text[0] == 'V') ) && editingActive)
 		{
-			if (inputText == "some text")
+			if (inputText == tempText)
 				inputText.clear();
 			//Append character
-			inputText += eve.text.text;
-			renderText = true;
-			SDL_DestroyTexture(texture);
-			SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), inputText.c_str(), { 0,0,0 });
-			texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
-			SDL_FreeSurface(surf);
-
+			if (inputText.size() < (getRect().w/10)) {
+				inputText += eve.text.text;
+				renderText = true;
+				SDL_DestroyTexture(texture);
+				SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), inputText.c_str(), { 0,0,0 });
+				texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+				SDL_FreeSurface(surf);
+			}
 			
 		
 		}

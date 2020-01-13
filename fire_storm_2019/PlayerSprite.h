@@ -16,6 +16,7 @@ public:
 	void draw() const;
 	void tick();
 	void setIsTurnedLeft(bool b) { isTurnedLeft = b; };
+	bool getIsTurnedLeft() { return isTurnedLeft; };
 	void keyUp(const SDL_Event&) {};
 	virtual void keyDown(const SDL_Event&) {}
 	void setXVel(int i) { xVel=i; }

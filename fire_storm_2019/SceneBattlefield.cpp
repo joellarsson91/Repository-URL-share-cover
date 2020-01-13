@@ -41,12 +41,14 @@ namespace fs19 {
 
 	class Boulder : public Sprite {
 	public:
-		static Boulder* getInstance(int x, int y, std::string path) {
-			return new Boulder(x, y, path);
+		static Boulder* getInstance(int x, int y, bool b, std::string path) {
+			return new Boulder(x, y, b, path);
 		}
 
-		Boulder(int x, int y, std::string path) : Sprite(x, y, 40, 40, true) {
+		Boulder(int x, int y, bool b, std::string path) : Sprite(x, y, 40, 40, true) {
 			texture = IMG_LoadTexture(sys.get_ren(), "pixelBoulder.jpg");
+			turnedLeft = b;
+			
 		}
 		~Boulder() {
 			SDL_DestroyTexture(texture);
@@ -66,17 +68,32 @@ namespace fs19 {
 					ge.remove(this);
 				}
 				else {
+					
+					if (turnedLeft) {
+						if (getRect().x > xtemp - 300) {
 
-					if (getRect().x < xtemp + 300) {
+							setPosition(-5, -3);
 
-						setPosition(5, -3);
-						
 
+						}
+						else if (getRect().x <= xtemp - 300 && getRect().y < ytemp) {
+
+							setPosition(-5, 3);
+
+						}
 					}
-					else if (getRect().x >= xtemp + 300 && getRect().y < ytemp) {
+					else {
+						if (getRect().x < xtemp + 300) {
 
-						setPosition(5, 3);
-						
+							setPosition(5, -3);
+
+
+						}
+						else if (getRect().x >= xtemp + 300 && getRect().y < ytemp) {
+
+							setPosition(5, 3);
+
+						}
 					}
 
 				}
@@ -88,6 +105,7 @@ namespace fs19 {
 
 	private:
 		SDL_Texture* texture;
+		bool turnedLeft;
 		int xtemp = getRect().x;
 		int ytemp = getRect().y;
 
@@ -135,11 +153,11 @@ namespace fs19 {
 			}
 			if (currentKeyStates[SDL_SCANCODE_A]) {
 				setXVel(-3);
-
+				setIsTurnedLeft(true);
 			}
 			if (currentKeyStates[SDL_SCANCODE_D]) {
 				setXVel(3);
-
+				setIsTurnedLeft(false);
 			}
 
 		}
@@ -168,7 +186,7 @@ namespace fs19 {
 
 			if (currentKeyStates[SDL_SCANCODE_F]) {
 				if (isReady) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 				ge.add(boulder);
 				counter++;
 				
@@ -225,9 +243,11 @@ namespace fs19 {
 			}
 			if (currentKeyStates[SDL_SCANCODE_LEFT]) {
 				setXVel(-3);
+				setIsTurnedLeft(true);
 			}
 			if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
 				setXVel(3);
+				setIsTurnedLeft(false);
 			}
 		}
 		void keyUp(const SDL_Event& eve) {
@@ -253,7 +273,7 @@ namespace fs19 {
 			}
 			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
 				if (isReady) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y, "pixelBoulder.jpg");
+				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 				ge.add(boulder);
 				counter++;
 

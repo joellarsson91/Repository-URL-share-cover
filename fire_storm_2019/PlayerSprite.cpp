@@ -8,16 +8,16 @@
 
 namespace fs19 {
 
-	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, bool collision, std::string path){
-		return new PlayerSprite(x, y, w, h,collision, path);
+	PlayerSprite* PlayerSprite::getInstance(int x, int y, int w, int h, bool collision, std::string path1,std::string path2) {
+		return new PlayerSprite(x, y, w, h,collision, path1,path2);
 		
 	
 	}
 
-	PlayerSprite::PlayerSprite(int x, int y, int w, int h, bool collision, std::string path) :Sprite(x,y,w,h,collision){
+	PlayerSprite::PlayerSprite(int x, int y, int w, int h, bool collision, std::string path1, std::string path2) :Sprite(x,y,w,h,collision){
 
-		pixelCatapult = IMG_LoadTexture(sys.get_ren(), "pixelCatapult2.png");
-		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),"pixelCatapultLeft2.png");
+		pixelCatapult = IMG_LoadTexture(sys.get_ren(), path1.c_str());
+		pixelCatapultLeft = IMG_LoadTexture(sys.get_ren(),path2.c_str());
 		
 	}
 

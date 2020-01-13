@@ -113,7 +113,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 50, 25, true, "pixelCatapult2.png") {}
+		Player1() : PlayerSprite(0, 300, 50, 25, true, "pixelCatapult2.png","pixelCatapultLeft2.png") {}
 
 		void tick() {
 			if (counter>0 && counter<150) {
@@ -135,7 +135,9 @@ namespace fs19 {
 
 		}
 		void perform() {
+
 			setPosition(-xTemp, -yTemp);;
+			std::cout << getCollider();
 		}
 
 
@@ -190,7 +192,7 @@ namespace fs19 {
 				ge.add(boulder);
 				counter++;
 				
-			}
+				}
 			}
 		}
 	private:
@@ -204,7 +206,7 @@ namespace fs19 {
 
 	class Player2 : public PlayerSprite {
 	public:
-		Player2() : PlayerSprite(700, 300, 50, 25, true, "pixelCatapult2.png") {}
+		Player2() : PlayerSprite(700, 300, 50, 25, true, "pixelCatapult2.png", "pixelCatapultLeft2.png") {}
 
 		void tick() {
 			if (counter > 0 && counter < 150) {
@@ -223,11 +225,6 @@ namespace fs19 {
 			
 		}
 		void perform() {
-			if (xTemp + yTemp == 0) {
-				xTemp = 1;
-				yTemp = 1;
-			}
-
 			setPosition(-xTemp, -yTemp);
 		}
 
@@ -277,7 +274,7 @@ namespace fs19 {
 				ge.add(boulder);
 				counter++;
 
-			}
+				}
 			}
 
 		}

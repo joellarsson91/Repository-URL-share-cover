@@ -11,7 +11,7 @@ class PlayerSprite : public Sprite
 public:
 
 
-	static PlayerSprite* getInstance(int x, int y, int w, int h, bool collision, std::string path);
+	static PlayerSprite* getInstance(int x, int y, int w, int h, bool collision, std::string path1, std::string path2);
 	~PlayerSprite();
 	void draw() const;
 	void tick();
@@ -27,7 +27,7 @@ public:
 	virtual void perform() {};
 
 protected:
-	PlayerSprite(int x, int y, int v, int h, bool collision, std::string path);
+	PlayerSprite(int x, int y, int v, int h, bool collision, std::string path1,std::string path2);
 
 private:
 	bool isTurnedLeft = false;

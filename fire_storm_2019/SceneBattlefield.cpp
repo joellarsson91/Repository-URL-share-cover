@@ -64,8 +64,7 @@ namespace fs19 {
 
 			//Counter för att ökas för varje gång den studsar.
 			
-				if (getRect().x <= 0 || getRect().x >= 800) {
-					
+				if (getRect().x < 0 || getRect().x >= 800) {
 					ge.remove(this);
 				}
 				else {
@@ -83,7 +82,6 @@ namespace fs19 {
 
 						}
 						else {
-							
 							ge.remove(this);
 						}
 					}
@@ -100,7 +98,6 @@ namespace fs19 {
 
 						}
 						else {
-						
 							ge.remove(this);
 						}
 					}

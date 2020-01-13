@@ -161,6 +161,14 @@ namespace fs19 {
 				setXVel(3);
 				setIsTurnedLeft(false);
 			}
+			if (currentKeyStates[SDL_SCANCODE_F]) {
+				if (isReady) {
+					Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
+					ge.add(boulder);
+					counter++;
+
+				}
+			}
 
 		}
 		void keyUp(const SDL_Event& eve) {
@@ -186,14 +194,14 @@ namespace fs19 {
 
 			}
 
-			if (currentKeyStates[SDL_SCANCODE_F]) {
+			/*if (currentKeyStates[SDL_SCANCODE_F]) {
 				if (isReady) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 				ge.add(boulder);
 				counter++;
 				
 				}
-			}
+			}*/
 		}
 	private:
 		//cd
@@ -246,6 +254,14 @@ namespace fs19 {
 				setXVel(3);
 				setIsTurnedLeft(false);
 			}
+			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
+				if (isReady) {
+					Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
+					ge.add(boulder);
+					counter++;
+
+				}
+			}
 		}
 		void keyUp(const SDL_Event& eve) {
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
@@ -268,14 +284,14 @@ namespace fs19 {
 					setXVel(0);
 
 			}
-			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
+			/*if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
 				if (isReady) {
 				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 				ge.add(boulder);
 				counter++;
 
 				}
-			}
+			}*/
 
 		}
 

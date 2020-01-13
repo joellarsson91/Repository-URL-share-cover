@@ -42,6 +42,10 @@ namespace fs19 {
 			SDL_StartTextInput();
 			editingActive = true;
 		}
+		else {
+			editingActive = false;
+			SDL_StopTextInput();
+		}
 	}
 	void TextBox::keyDown(const SDL_Event& eve) {
 		//Handle backspace

@@ -231,6 +231,7 @@ namespace fs19 {
 		}
 		void perform() {
 			setPosition(-xTemp, -yTemp);
+		
 		}
 
 		void keyDown(const SDL_Event& eve) {
@@ -281,14 +282,6 @@ namespace fs19 {
 					setXVel(0);
 
 			}
-			/*if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
-				if (isReady) {
-				Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
-				ge.add(boulder);
-				counter++;
-
-				}
-			}*/
 
 		}
 

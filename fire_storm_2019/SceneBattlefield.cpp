@@ -169,7 +169,8 @@ namespace fs19 {
 			}
 			if (currentKeyStates[SDL_SCANCODE_F]) {
 				if (isReady) {
-					Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
+					//Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
+					Sprite* boulder = Boulder::getInstance(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 					ge.add(boulder);
 					counter++;
 
@@ -254,7 +255,7 @@ namespace fs19 {
 			}
 			if (currentKeyStates[SDL_SCANCODE_RCTRL]) {
 				if (isReady) {
-					Sprite* boulder = new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
+					Sprite* boulder = Boulder::getInstance(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg"); //= new Boulder(getRect().x, getRect().y, getIsTurnedLeft(), "pixelBoulder.jpg");
 					ge.add(boulder);
 					counter++;
 

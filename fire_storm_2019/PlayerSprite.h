@@ -23,6 +23,7 @@ public:
 	int getXVel() { return xVel; }
 	int getYVel() { return yVel; }
 	void calculateCollision();
+	virtual void perform() {};
 
 protected:
 	PlayerSprite(int x, int y, int v, int h, bool collision, std::string path);

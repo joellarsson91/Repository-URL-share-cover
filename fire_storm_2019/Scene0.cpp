@@ -62,10 +62,13 @@ namespace fs19 {
 	
 	class runAnimation : public AnimationSprite {
 	public:
-		runAnimation() : AnimationSprite(300, 200, 125, 125,false, "Runanimation.png", 4, 4) {}
+		runAnimation() : AnimationSprite(300, 200, 128, 128,false, "fireAnim.png", 8, 8) {}
 	};
 
-
+	class FireAnimation : public AnimationSprite {
+	public:
+		FireAnimation() : AnimationSprite(500, 200, 128, 128, false, "fireAnim.png", 8, 8) {}
+	};
 
 
 	//Moved constructor down so the encapsulated classes
@@ -79,8 +82,9 @@ namespace fs19 {
 		Sprite* background = new Background("background.png");
 		addSprites(background);
 		addSprites(new NewGameButton());
-		addSprites(new walkAnimation());
+		//addSprites(new walkAnimation());
 		addSprites(new runAnimation());
+		
 
 	}
 }

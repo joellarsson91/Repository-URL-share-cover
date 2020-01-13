@@ -36,6 +36,9 @@ namespace fs19 {
 
 	};
 
+
+
+
 	class Boulder : public Sprite {
 	public:
 		static Boulder* getInstance(int x, int y, std::string path) {
@@ -103,7 +106,18 @@ namespace fs19 {
 				counter = 0;
 				isReady = true;
 			}
+			
+			setPosition(getXVel(), getYVel());
+			xTemp = getXVel();
+			yTemp = getYVel();
+			
+			
 			calculateCollision();
+			
+
+		}
+		void perform() {
+			setPosition(-xTemp, -yTemp);;
 		}
 
 
@@ -165,6 +179,7 @@ namespace fs19 {
 		//cd
 		bool isReady = true;
 		int counter = 0;
+		int xTemp = 0, yTemp = 0;
 		
 	};
 
@@ -182,8 +197,20 @@ namespace fs19 {
 				counter = 0;
 				isReady = true;
 			}
-			calculateCollision();
+			setPosition(getXVel(), getYVel());
+			xTemp = getXVel();
+			yTemp = getYVel();
 
+			calculateCollision();
+			
+		}
+		void perform() {
+			if (xTemp + yTemp == 0) {
+				xTemp = 1;
+				yTemp = 1;
+			}
+
+			setPosition(-xTemp, -yTemp);
 		}
 
 		void keyDown(const SDL_Event& eve) {
@@ -238,6 +265,7 @@ namespace fs19 {
 	private:
 		bool isReady = true;
 		int counter = 0;
+		int xTemp = 0, yTemp = 0;
 
 	};
 

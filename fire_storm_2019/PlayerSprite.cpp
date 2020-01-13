@@ -34,12 +34,9 @@ namespace fs19 {
 			if (s->getCollider())
 				collision = checkCollision(getRect(), s->getRect());
 		}
-		if (!collision) {
-			setPosition(xVel, yVel);
-		}
-		else {
-			setPosition(-xVel, -yVel);
-		}
+		if(collision)
+			perform();
+		
 		setCollider(true);
 	}
 	void PlayerSprite::tick() {	}

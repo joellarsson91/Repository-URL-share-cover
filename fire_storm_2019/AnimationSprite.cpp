@@ -23,6 +23,7 @@ namespace fs19 {
 	void AnimationSprite::tick() {
 		static int frame = 0;
 		frame++;
+		
 		static int clips = 0;
 		if (frame % 5 == 0) {
 			clips++;

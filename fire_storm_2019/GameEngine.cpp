@@ -14,7 +14,7 @@ namespace fs19 {
 	}
 
 	void GameEngine::remove(Sprite* s) {
-		//eventQueue.erase(eventQueue.begin()+b,eventQueue.begin()+e);
+		delete s;
 		removed.push_back(s);
 	}
 
@@ -94,7 +94,7 @@ namespace fs19 {
 			added.clear();
 
 			//går igenom removed och tar bort från eventQueue
-			for (Sprite* s : removed)
+			for (Sprite* s : removed) 
 				for (std::vector<Sprite*>::iterator i = eventQueue.begin();
 					i != eventQueue.end();)
 					if (*i == s) {
@@ -103,6 +103,8 @@ namespace fs19 {
 					}
 					else
 						i++;
+
+			
 			removed.clear();
 			
 

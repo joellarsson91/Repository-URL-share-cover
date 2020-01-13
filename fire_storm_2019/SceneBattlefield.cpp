@@ -64,7 +64,7 @@ namespace fs19 {
 
 			//Counter för att ökas för varje gång den studsar.
 			
-				if (getRect().x <= 0 || getRect().x >= 800) {
+				if (getRect().x < 0 || getRect().x > 800) {
 					ge.remove(this);
 				}
 				else {
@@ -113,7 +113,7 @@ namespace fs19 {
 
 	class Player1 : public PlayerSprite {
 	public:
-		Player1() : PlayerSprite(0, 300, 50, 25, true, "pixelCatapult2.png","pixelCatapultLeft2.png") {}
+		Player1() : PlayerSprite(100, 300, 50, 25, true, "pixelCatapult2.png","pixelCatapultLeft2.png") {}
 
 		void tick() {
 			if (counter>0 && counter<150) {
